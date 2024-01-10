@@ -53,6 +53,8 @@ return $emails;
         $stmt->execute();
         $loged  = $stmt->fetch(PDO::FETCH_ASSOC);
 
+
+        
         return $loged;
     }
 

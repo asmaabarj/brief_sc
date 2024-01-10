@@ -11,8 +11,8 @@
     
 <div class="flex ">
 <aside id="logo-sidebar" class="fixed top-0 left-0 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
-   <div class="h-full px-3 bg-gray-100 ">
-         <img src="../../../public/images/logowiki.png" class="h-0 w-48 h-32" alt="" />
+   <div class="h-full px-3 bg-gray-50 ">
+         <img src="../../../public/images/wikilogo.png" class="w-32 my-6  h-16" alt="" />
       </a>
       <ul class="space-y-2 font-medium">
          <li>

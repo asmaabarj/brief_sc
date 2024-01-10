@@ -2,13 +2,11 @@
 require_once("../services/UserService.php");
 require_once("../models/User.php");
 
+
+
 session_start();
 
-
-
 $Userservice = new Userservice();
-
-// ----------------------add author-------------------------
 
 if (isset($_POST["register"])) {
     $fullname = $_POST["Fname"];
@@ -21,27 +19,26 @@ if (isset($_POST["register"])) {
         if ($password === $cpassword) {
             if ($emails) {
                 $_SESSION['exist'] = 'E-mail already exists';
-                header('Location: ../views/authentification/register.php');
+                header('Location: ../views/authentification/signUp.php');
             } else {
                 $hashing = password_hash($password, PASSWORD_DEFAULT);
-                $role = 'admin';
+                $role = 'author';
                 $user = new User($id, $fullname, $email,  $hashing, $role);
                 $Userservice->adduser($user, $email);
 
-                header('Location: ../views/authentification/login.php');
+                header('Location: ../views/authentification/signIn.php');
             }
         } else {
 
             $_SESSION['error'] = 'Passwords not Matched';
-            header('Location: ../views/authentification/register.php');
+            header('Location: ../views/authentification/signUp.php');
         }
     }else {
         $_SESSION['empty'] = 'Empty Input invalid';
-            header('Location: ../views/authentification/register.php');
+            header('Location: ../views/authentification/signUp.php');
     }
 }
 
-// --------------------------------login------------------------------
 
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
@@ -54,13 +51,15 @@ if (isset($_POST['login'])) {
 
 
 
-    if (password_verify($logPwd, $password) && $role === 'author') {
 
-        header('Location: ../views/visiteur/');
-    } else if (password_verify($logPwd, $password) && $role === 'admin') {
-        header('Location: ../views/admin/');
-    } else {
-        $_SESSION['erreur'] = 'inccorect E-mail Or Password';
-        header('Location: ../views/authentification/login.php');
-    }
+        if (password_verify($logPwd, $password) && $role === 'author') {
+
+            header('Location: ../views/client/index.php');
+        } else if (password_verify($logPwd, $password) && $role === 'admin') {
+            header('Location: ../views/admin/dashboard.php');
+        } else {
+            $_SESSION['erreur'] = 'inccorect E-mail Or Password';
+            header('Location: ../views/authentification/signIn.php');
+        }
+   
 }

@@ -24,9 +24,9 @@
    </div>
   </header>
 
-
-  <div class="  w-[75%]   font-[sans-serif]  mx-auto mt-4 ">
-  <img src="../../../public/images/wikilogo.png" class="w-full h-[80vh] bg-white shadow-[0_2px_18px_-6px_rgba(0,0,0,0.2)] " />
+<section class=" flex justify-between gap-20 mt-20 ">
+  <div class="  ml-10   font-[sans-serif] ">
+  <img src="../../../public/images/wikilogo.png" class="w-full md:h-[80vh] bg-white shadow-[0_2px_18px_-6px_rgba(0,0,0,0.2)] " />
 
   <div class="flex gap-1 mt-4">
   <button type="button"
@@ -73,6 +73,63 @@ Geography
       
     </div>
 </div>
+<div class="">
+    <h1>similar categories</h1>
+<div class=" bg-gray-200 md:w-[22vw] w-full max-w-sm rounded-[3px] font-[sans-serif] overflow-hidden mx-auto mt-4 md:h-[50vh]">
+  <img src="../../../public/images/wikilogo.png" class="w-full h-[50%]" />
+  <div class="px-4 md h-[55%] mt-3">
+    <h3 class="text-l font-semibold ">Heading</h3>
+    <p class="mt-2 text-xs text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor
+      arcu,
+    </p>
+    <button type="button"
+      class="md:px-5 px-6 md:py-1 py-2 md:mt-3 mt-4 rounded-[3px] text-white md:text-xs text-sm tracking-wider font-semibold border-none outline-none bg-black hover:bg-gray-800 active:bg-blue-600">View</button>
+      
+    </div>
+</div> 
+<div class="">
+<div class=" bg-gray-200 md:w-[22vw] w-full max-w-sm rounded-[3px] font-[sans-serif] overflow-hidden mx-auto mt-4 md:h-[50vh]">
+  <img src="../../../public/images/wikilogo.png" class="w-full h-[50%]" />
+  <div class="px-4 md h-[55%] mt-3">
+    <h3 class="text-l font-semibold ">Heading</h3>
+    <p class="mt-2 text-xs text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor
+      arcu,
+    </p>
+    <button type="button"
+      class="md:px-5 px-6 md:py-1 py-2 md:mt-3 mt-4 rounded-[3px] text-white md:text-xs text-sm tracking-wider font-semibold border-none outline-none bg-black hover:bg-gray-800 active:bg-blue-600">View</button>
+      
+    </div>
+</div>   
+<div class="">
+<div class=" bg-gray-200 md:w-[22vw] w-full max-w-sm rounded-[3px] font-[sans-serif] overflow-hidden mx-auto mt-4 md:h-[50vh]">
+  <img src="../../../public/images/wikilogo.png" class="w-full h-[50%]" />
+  <div class="px-4 md h-[55%] mt-3">
+    <h3 class="text-l font-semibold ">Heading</h3>
+    <p class="mt-2 text-xs text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor
+      arcu,
+    </p>
+    <button type="button"
+      class="md:px-5 px-6 md:py-1 py-2 md:mt-3 mt-4 rounded-[3px] text-white md:text-xs text-sm tracking-wider font-semibold border-none outline-none bg-black hover:bg-gray-800 active:bg-blue-600">View</button>
+      
+    </div>
+</div> 
+<div class="">
+<div class=" bg-gray-200 md:w-[22vw] w-full max-w-sm rounded-[3px] font-[sans-serif] overflow-hidden mx-auto mt-4 md:h-[50vh]">
+  <img src="../../../public/images/wikilogo.png" class="w-full h-[50%]" />
+  <div class="px-4 md h-[55%] mt-3">
+    <h3 class="text-l font-semibold ">Heading</h3>
+    <p class="mt-2 text-xs text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor
+      arcu,
+    </p>
+    <button type="button"
+      class="md:px-5 px-6 md:py-1 py-2 md:mt-3 mt-4 rounded-[3px] text-white md:text-xs text-sm tracking-wider font-semibold border-none outline-none bg-black hover:bg-gray-800 active:bg-blue-600">View</button>
+      
+    </div>
+</div> 
+</section>
+
+
+
 <footer class="bg-gray-900 font-[sans-serif] mt-10">
       <div class="px-10 md:px-16 py-12 grid sm:grid-cols-2 xl:grid-cols-4 gap-8">
         <div>

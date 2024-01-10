@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,7 @@
 
 <body>
     <div class="font-[sans-serif] text-[#333]">
-        <div class="text-center bg-gradient-to-r from-blue-800 to-blue-400 min-h-[160px] sm:p-6 p-4">
+        <div class="text-center bg-gradient-to-r from-black to-gray-600 min-h-[160px] sm:p-6 p-4">
             <h4 class="sm:text-3xl text-2xl font-bold text-white">Create your account to be an author</h4>
         </div>
         <div class="mx-4 mb-4 -mt-16">
@@ -22,28 +23,28 @@
                   
                     <div>
                         <label class="text-sm mb-2 block">Full Name</label>
-                        <input name="Fname" type="text" class="bg-gray-100 w-full text-sm px-4 py-3 rounded-md outline-blue-500" placeholder="Enter Full name" />
+                        <input name="Fname" type="text" class="bg-gray-100 w-full text-sm px-4 py-3 rounded-md outline-gray-500" placeholder="Enter Full name" />
                     </div>
                     <div>
                         <label class="text-sm mb-2 block">Email Id</label>
-                        <input name="email" type="text" class="bg-gray-100 w-full text-sm px-4 py-3 rounded-md outline-blue-500" placeholder="Enter email" />
+                        <input name="email" type="text" class="bg-gray-100 w-full text-sm px-4 py-3 rounded-md outline-gray-500" placeholder="Enter email" />
                     </div>
                     
                     <div>
                         <label class="text-sm mb-2 block">Password</label>
-                        <input name="password" type="password" class="bg-gray-100 w-full text-sm px-4 py-3 rounded-md outline-blue-500" placeholder="Enter password" />
+                        <input name="password" type="password" class="bg-gray-100 w-full text-sm px-4 py-3 rounded-md outline-gray-500" placeholder="Enter password" />
                     </div>
                     <div>
                         <label class="text-sm mb-2 block">Confirm Password</label>
-                        <input name="cpassword" type="password" class="bg-gray-100 w-full text-sm px-4 py-3 rounded-md outline-blue-500" placeholder="Enter confirm password" />
+                        <input name="cpassword" type="password" class="bg-gray-100 w-full text-sm px-4 py-3 rounded-md outline-gray-500" placeholder="Enter confirm password" />
                     </div>
                 </div>
                 <div class="!mt-10">
-                    <button type="submit" name="register" class="min-w-[150px] py-3 px-4 text-sm font-semibold rounded-md text-white bg-blue-500 hover:bg-blue-600 focus:outline-none">
+                    <button type="submit" name="register" class="min-w-[150px] py-3 px-4 text-sm font-semibold rounded-md text-white bg-black hover:bg-gray-600 focus:outline-none">
                         Sign up
                     </button>
                 </div>
-                <p class="text-sm mt-6 text-center">Already have an account?<a href="signIn.php" class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Login here</a></p>
+                <p class="text-sm mt-6 text-center">Already have an account?<a href="signIn.php" class="text-black font-semibold hover:underline ml-1 whitespace-nowrap">Login here</a></p>
 
             </form>
         </div>
