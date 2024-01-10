@@ -6,6 +6,7 @@
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
+
 </head>
 <body>
 <header class=' py-2 px-2 sm:px-10  min-h-[70px]'>
@@ -26,6 +27,7 @@
 
   <div class="  w-[75%]   font-[sans-serif]  mx-auto mt-4 ">
   <img src="../../../public/images/wikilogo.png" class="w-full h-[80vh] bg-white shadow-[0_2px_18px_-6px_rgba(0,0,0,0.2)] " />
+
   <div class="flex gap-1 mt-4">
   <button type="button"
     class="px-5 py-[6px] rounded-full text-black text-xs outline-none border-[1px] border-[#333] hover:bg-[#222] hover:text-white ">Dark</button>

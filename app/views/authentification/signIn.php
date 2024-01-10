@@ -49,7 +49,7 @@
                             Log in
                         </button>
                     </div>
-                    <p class="text-sm mt-6 text-center">Don't have an account <a href="signUp.php" class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>
+                    <p class="text-sm mt-6 text-center">Don't have an account ?<a href="signUp.php" class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>
                 </form>
             </div>
         </div>

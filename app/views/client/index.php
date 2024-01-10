@@ -10,7 +10,7 @@
 <body>
 <header class=' py-2 px-2 sm:px-10  min-h-[70px]'>
     <div class='flex justify-between items-center gap-x-4  '>
-      <a href="index.php"><img src="../../../public/images/wikilogo.png" alt="logo" class='w-16' />
+      <a href="index.php"><img src="../../../public/images/wikilogo.png" alt="logo" class='w-20 h-12' />
       </a>  
       <div class=" flex justify-between gap-4">
         <ul class='lg:!flex lg:flex-auto '> 
