@@ -40,4 +40,36 @@ if(isset($_POST["delete"])){
     header('Location: ../views/client/myWikis.php');
     exit;
 }
+
+$title='';
+$description='';
+$image='';
+$content='';
+
+if(isset($_POST["edit"])){
+    $id = $_POST["edit"];
+   $data = $wikiService->showWiki($id);  
+   if($data){
+    $_SESSION['wikis'] = $data;
+    $_SESSION['idwiki'] = $id;
+        header('Location: ../views/client/addWiki.php');
+
+   }    
+}  
+   if(isset($_POST["updatewiki"])){
+    $id = $_POST['updateWiki'];
+    $titleWiki = $_POST["titleWiki"];
+    $image = $_FILES["image"]["name"];
+    $tempname = $_FILES["image"]["tmp_name"];
+    $desc = $_POST["summarize"];
+    $content= $_POST["content"];
+    $category = '';
+    $user ='';
+    $idWiki='';
+    $wikis = new wiki($id, URLROOT . 'public/images/' . $image, $titleWiki, $content, $desc, $created_at, $category, $user, $WikiStatus);
+    $$WikisService->updateWiki($wiki,$id);
+    unset($_SESSION['idwiki']);
+    header('Location: ../views/client/myWikis.php');
+}
+
 ?>

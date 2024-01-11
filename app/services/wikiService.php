@@ -69,7 +69,45 @@ class wikiService{
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
     }
-        
+     
+    
+    public function showWiki($id){
+        $query ="SELECT * FROM wiki WHERE wiki_id = :id";
+        $conn= $this->connect();
+        $stmt=$conn->prepare($query);
+        $stmt->bindParam(":id",$id);
+
+        $stmt->execute();
+        $result=$stmt->fetch(PDO::FETCH_ASSOC);
+        $title=$result["wiki_title"];
+        $description=$result["wiki_summarize"];
+        $image=$result["wiki_image"];
+        $content=$result["wiki_content"];
+        return [$title,$description,$image,$content];
+    }
+
+
+    public function updateWiki(wiki $wiki,$id){
+        $conn = $this->connect();
+        $title = $wiki->__get('wiki_title');
+        $description = $wiki->__get('wiki_summarize');
+        $image = $wiki->__get('wiki_image');
+        $content = $wiki->__get('wiki_content');
+
+
+    
+        $query = "UPDATE wiki SET wiki_title = :title, wiki_summarize = :summarize, wiki_image = :image ,wiki_content=:content WHERE wiki_id = :id";
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(":id", $id);
+        $stmt->bindParam(":title", $title);
+        $stmt->bindParam(":summarize", $description);
+        $stmt->bindParam(":image", $image);
+        $stmt->bindParam(":content", $content);
+
+        $stmt->execute();
+    }
+
+
     } 
 
 
