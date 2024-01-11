@@ -19,7 +19,18 @@ class tagService{
 
     }
 
-    
+    public function selectTag(){
+        $query ="SELECT * FROM tag";
+        $conn= $this->connect();
+        $stmt=$conn->prepare($query);
+        $stmt->execute();
+        $result= $stmt->fetchAll(PDO::FETCH_ASSOC);
+         $tags=array();
+         foreach($result as $TAG){
+            $tags[]= new tag ($TAG['tag_id'],$TAG['tag_name']);
+         }
+         return $tags;
+    }
     }
 
 
