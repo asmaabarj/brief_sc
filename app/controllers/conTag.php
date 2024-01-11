@@ -16,7 +16,12 @@ if(isset($_POST["addTag"])){
 }
 $result=$tagService->selectTag();
 
-
+if(isset($_POST["delete"])){
+    $id = $_POST["delete"];
+    $tagService->deleteTag($id);        
+    header('Location: ../views/admin/manageTag.php');
+    exit;
+}
 
 
 

@@ -37,9 +37,8 @@ class categoryService{
     }
 
 
-    public function updateCat(category $category){
+    public function updateCat(category $category,$id){
         $conn = $this->connect();
-        $id = $category->__get('category_id');
         $name = $category->__get('category_name');
         $description = $category->__get('category_description');
         $image = $category->__get('category_image');

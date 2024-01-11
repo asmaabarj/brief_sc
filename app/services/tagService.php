@@ -32,7 +32,13 @@ class tagService{
          return $tags;
     }
 
-
+    public function deleteTag($id){
+        $conn = $this->connect();
+        $query = "DELETE FROM tag WHERE tag_id = :id";
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
 
 
 } 
