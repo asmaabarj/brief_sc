@@ -62,7 +62,14 @@ class wikiService{
 
 
 
+    public function deleteWiki($id){
+        $conn = $this->connect();
+        $query = "DELETE FROM Wiki WHERE wiki_id = :id";
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+        
+    } 
 
 
-
-}

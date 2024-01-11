@@ -34,5 +34,10 @@ if (isset($_POST["addWiki"])) {
 
 $wikisAuteur = $WikisService->selectWiki($_SESSION['user']);
 // var_dump($wikisAuteur);
-
+if(isset($_POST["delete"])){
+    $id = $_POST["delete"];
+    $WikisService->deleteWiki($id);        
+    header('Location: ../views/client/myWikis.php');
+    exit;
+}
 ?>
