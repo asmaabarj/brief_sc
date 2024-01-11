@@ -139,7 +139,7 @@ require_once(__DIR__ . "/../../controllers/ContCategory.php");
                 </svg>
                 update Category
               </button>
-              
+
             <?php   } else {
             ?>
               <button type="submit" name="addCat" class="text-white inline-flex items-center bg-gray-900 hover:bg-black focus:ring-4 focus:outline-none focus:ring-gray-900 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-800 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -175,7 +175,7 @@ require_once(__DIR__ . "/../../controllers/ContCategory.php");
 
         <tbody class="whitespace-nowrap">
           <?php
-          foreach ($result as $CATEGORIE) :
+          foreach ($resultCat as $CATEGORIE) :
           ?>
             <tr class="odd:bg-blue-50">
               <td class="px-6 py-3 text-sm">

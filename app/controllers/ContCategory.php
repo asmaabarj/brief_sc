@@ -16,7 +16,7 @@ if(isset($_POST["addCat"])){
    header('Location: ../views/admin/manageCategory.php');
 
 }
-$result=$categoryService->selectCat();
+$resultCat=$categoryService->selectCat();
 
 
 // var_dump($result);
@@ -40,7 +40,6 @@ if(isset($_POST["edit"])){
 
    }    
 }  
-   var_dump($_POST);
    if(isset($_POST["updateCat"])){
     $id = $_POST['updateCat'];
     $nameCat = $_POST["nameCat"];
