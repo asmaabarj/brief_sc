@@ -37,16 +37,31 @@ class categoryService{
     }
 
 
-    public function upDateCat(){
-        $query ="SELECT * FROM category";
-
+    public function updateCat(category $category){
+        $conn = $this->connect();
+        $id = $category->__get('category_id');
+        $name = $category->__get('category_name');
+        $description = $category->__get('category_description');
+        $image = $category->__get('category_image');
+    
+        $query = "UPDATE category SET category_name = :name, category_description = :description, category_image = :image WHERE category_id = :id";
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(":id", $id);
+        $stmt->bindParam(":name", $name);
+        $stmt->bindParam(":description", $description);
+        $stmt->bindParam(":image", $image);
+        $stmt->execute();
     }
 
 
-    public function deleteCat(){
-        $query ="DELETE * FROM category WHERE category_id =:id";
-
-    }
+public function deleteCat($id){
+    $conn = $this->connect();
+    $query = "DELETE FROM category WHERE category_id = :id";
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+    $stmt->execute();
+}
+    
 } 
 
 

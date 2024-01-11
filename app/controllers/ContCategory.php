@@ -15,16 +15,16 @@ if(isset($_POST["addCat"])){
    $categoryService->addCat($category);
    header('Location: ../views/admin/manageCategory.php');
 
-
 }
 $result=$categoryService->selectCat();
 
 
-
-
-
-
-
-
+// var_dump($result);
+if(isset($_POST["delete"])){
+    $id = $_POST["delete"];
+    $categoryService->deleteCat($id);        
+    header('Location: ../views/admin/manageCategory.php');
+    exit;
+}
 
 ?>
