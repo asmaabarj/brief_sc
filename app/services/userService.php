@@ -58,11 +58,18 @@ return $emails;
         return $loged;
     }
 
-
-    public function updateuser(User $user)
-    {
+    public function selectAuthor(){
+        $query ="SELECT * FROM users WHERE user_role = 'author'";
+        $conn= $this->connect();
+        $stmt=$conn->prepare($query);
+        $stmt->execute();
+        $result= $stmt->fetchAll(PDO::FETCH_ASSOC);
+         $userss=array();
+         
+         foreach($result as $user){
+            $userss[]= new user ($user['user_id'],$user['user_fullname'],$user['user_email'],$user['user_pwd'],$user['user_role']);
+         }
+         return $userss;
     }
-    public function removeUser()
-    {
-    }
+    
 }

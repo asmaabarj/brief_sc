@@ -1,5 +1,7 @@
 <?php 
 require_once(__DIR__."/../../controllers/conUser.php");
+require_once(__DIR__."/../../controllers/contCategory.php");
+
 
 if(isset($_SESSION['user'])){
 }
@@ -21,7 +23,7 @@ else{
 </head>
 <body class="text-gray-800 font-inter">
     
-    <div class="fixed left-0 top-0 w-64 h-full bg-gray-100 p-4 z-50 sidebar-menu transition-transform">
+    <div class=" fixed left-0 top-0 w-64 h-full bg-gray-100 p-4 z-50 sidebar-menu transition-transform">
         <a href="dashboard.php" class="flex items-center pb-4 border-b border-b-gray-800">
             <img src="../../../public/images/wikilogo.png" alt="" class="w-16 h-12 rounded ">
         </a>
@@ -142,60 +144,27 @@ else{
                         <table class="w-full min-w-[540px]">
                             <thead>
                                 <tr>
-
-                                    <th class="text-[12px] uppercase tracking-wide font-medium text-gray-400 py-2 px-4 bg-gray-50 text-left rounded-tl-md rounded-bl-md">Name</th>
-                                    <th class="text-[12px] uppercase tracking-wide font-medium text-gray-400 py-2 px-4 bg-gray-50 text-left">Email</th>
+                                
+                                    <th class="text-[12px] uppercase tracking-wide font-medium text-gray-600 py-2 px-4 bg-gray-50 text-left rounded-tl-md rounded-bl-md">author name</th>
+                                    <th class="text-[12px] uppercase tracking-wide font-medium text-gray-600 py-2 px-4 bg-gray-50 text-left">author email</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php
+                                   foreach ($Authors as $author) :
+                                ?>
                                 <tr>
                                     <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <span class="text-[13px] font-medium text-gray-400">3 days</span>
+                                        <span class="text-[13px] font-medium text-gray-400"><?=$author->getFullname();?></span>
                                     </td>
                                     <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <span class="text-[13px] font-medium text-gray-400">$56</span>
+                                        <span class="text-[13px] font-medium text-gray-400"><?=$author->getEmail();?></span>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <span class="text-[13px] font-medium text-gray-400">3 days</span>
-                                    </td>
-                                    <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <span class="text-[13px] font-medium text-gray-400">$56</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <span class="text-[13px] font-medium text-gray-400">3 days</span>
-                                    </td>
-                                    <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <span class="text-[13px] font-medium text-gray-400">$56</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <span class="text-[13px] font-medium text-gray-400">3 days</span>
-                                    </td>
-                                    <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <span class="text-[13px] font-medium text-gray-400">$56</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <span class="text-[13px] font-medium text-gray-400">3 days</span>
-                                    </td>
-                                    <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <span class="text-[13px] font-medium text-gray-400">$56</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <span class="text-[13px] font-medium text-gray-400">3 days</span>
-                                    </td>
-                                    <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <span class="text-[13px] font-medium text-gray-400">$56</span>
-                                    </td>
-                                </tr>
+                                
+                                <?php
+          endforeach;
+          ?>
                             </tbody>
                         </table>
                                              
@@ -213,86 +182,28 @@ else{
                                 <tr>
                                     <th class="text-[12px] uppercase tracking-wide font-medium text-gray-400 py-2 px-4 bg-gray-50 text-left rounded-tl-md rounded-bl-md">Name</th>
                                     <th class="text-[12px] uppercase tracking-wide font-medium text-gray-400 py-2 px-4 bg-gray-50 text-left">description</th>
-                                    <th class="text-[12px] uppercase tracking-wide font-medium text-gray-400 py-2 px-4 bg-gray-50 text-left">wikis Number</th>
-                                    <th class="text-[12px] uppercase tracking-wide font-medium text-gray-400 py-2 px-4 bg-gray-50 text-left rounded-tr-md rounded-br-md"></th>
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php
+                                    foreach ($resultCat as $CATEGORIE) :
+                                 ?>
                                 <tr>
                                     <td class="py-2 px-4 border-b border-b-gray-50">
                                         <div class="flex items-center">
-                                            <img src="https://placehold.co/32x32" alt="" class="w-8 h-8 rounded object-cover block">
-                                            <P class="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate">Create landing page</P>
+                                            <img src="<?= $CATEGORIE->__get('category_image'); ?>" alt="" class="w-8 h-8 rounded object-cover block">
+                                            <P class="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate"><?= $CATEGORIE->__get('category_name'); ?></P>
                                         </div>
                                     </td>
                                     <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <span class="text-[13px] font-medium text-gray-400">$235</span>
-                                    </td>
-                                    <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <span class="text-[13px] font-medium text-gray-400">1K</span>
+                                        <span class="text-[13px] font-medium text-gray-400"><?= $CATEGORIE->__get('category_desc'); ?></span>
                                     </td>
                                     
-                                </tr>
-                                <tr>
-                                    <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <div class="flex items-center">
-                                            <img src="https://placehold.co/32x32" alt="" class="w-8 h-8 rounded object-cover block">
-                                            <P class="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate">Create landing page</P>
-                                        </div>
-                                    </td>
-                                    <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <span class="text-[13px] font-medium text-gray-400">$235</span>
-                                    </td>
-                                    <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <span class="text-[13px] font-medium text-gray-400">1K</span>
-                                    </td>
                                     
                                 </tr>
-                                <tr>
-                                    <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <div class="flex items-center">
-                                            <img src="https://placehold.co/32x32" alt="" class="w-8 h-8 rounded object-cover block">
-                                            <P class="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate">Create landing page</P>
-                                        </div>
-                                    </td>
-                                    <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <span class="text-[13px] font-medium text-gray-400">$235</span>
-                                    </td>
-                                    <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <span class="text-[13px] font-medium text-gray-400">1K</span>
-                                    </td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <div class="flex items-center">
-                                            <img src="https://placehold.co/32x32" alt="" class="w-8 h-8 rounded object-cover block">
-                                            <P class="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate">Create landing page</P>
-                                        </div>
-                                    </td>
-                                    <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <span class="text-[13px] font-medium text-gray-400">$235</span>
-                                    </td>
-                                    <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <span class="text-[13px] font-medium text-gray-400">1K</span>
-                                    </td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <div class="flex items-center">
-                                            <img src="https://placehold.co/32x32" alt="" class="w-8 h-8 rounded object-cover block">
-                                            <P class="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate">Create landing page</P>
-                                        </div>
-                                    </td>
-                                    <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <span class="text-[13px] font-medium text-gray-400">$235</span>
-                                    </td>
-                                    <td class="py-2 px-4 border-b border-b-gray-50">
-                                        <span class="text-[13px] font-medium text-gray-400">1K</span>
-                                    </td>
-                                    
-                                </tr>
+                                <?php
+          endforeach;
+          ?>
                             </tbody>
                         </table>
                     </div>
