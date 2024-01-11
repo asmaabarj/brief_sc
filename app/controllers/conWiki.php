@@ -48,7 +48,7 @@ $content='';
 
 if(isset($_POST["edit"])){
     $id = $_POST["edit"];
-   $data = $wikiService->showWiki($id);  
+   $data = $WikisService->showWiki($id);  
    if($data){
     $_SESSION['wikis'] = $data;
     $_SESSION['idwiki'] = $id;
@@ -56,18 +56,21 @@ if(isset($_POST["edit"])){
 
    }    
 }  
-   if(isset($_POST["updatewiki"])){
+   if(isset($_POST["updateWiki"])){
     $id = $_POST['updateWiki'];
-    $titleWiki = $_POST["titleWiki"];
+    $wikiTitile = $_POST["Title"];
+    $wikiSummary = $_POST["summary"];
+    
     $image = $_FILES["image"]["name"];
     $tempname = $_FILES["image"]["tmp_name"];
-    $desc = $_POST["summarize"];
     $content= $_POST["content"];
     $category = '';
     $user ='';
     $idWiki='';
-    $wikis = new wiki($id, URLROOT . 'public/images/' . $image, $titleWiki, $content, $desc, $created_at, $category, $user, $WikiStatus);
-    $$WikisService->updateWiki($wiki,$id);
+    $WikiStatus='';
+    $created_at ='';
+    $wikis = new wiki($idWiki, URLROOT . 'public/images/' . $image, $wikiTitile, $content, $wikiSummary, $created_at, $category, $user, $WikiStatus);
+    $WikisService->updateWiki($wikis,$id);
     unset($_SESSION['idwiki']);
     header('Location: ../views/client/myWikis.php');
 }

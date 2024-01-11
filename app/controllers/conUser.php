@@ -1,10 +1,9 @@
 <?php
-require_once("../services/UserService.php");
-require_once("../models/User.php");
+require_once(__DIR__."/../services/UserService.php");
+require_once(__DIR__."/../models/user.php");
 
 
 
-session_start();
 
 $Userservice = new Userservice();
 

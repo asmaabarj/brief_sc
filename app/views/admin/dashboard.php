@@ -1,7 +1,6 @@
 <?php 
 require_once(__DIR__."/../../controllers/conUser.php");
 
-session_start();
 if(isset($_SESSION['user'])){
 }
 else{
