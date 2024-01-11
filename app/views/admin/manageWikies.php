@@ -118,96 +118,16 @@
         </td>
         
         <td class="px-6 py-3">
-          <button class="mr-4 font-bold hover:text-red-300" >
+          <form action="" method="post">
+          <button type="submit" name="archive" class="mr-4 font-bold hover:text-red-300" >
             Archived
           </button>   
-        </td>
-      </tr>
-      <tr class="odd:bg-blue-50">
-        <td class="px-6 py-3 text-sm">
-          <div class="flex items-center cursor-pointer">
-            <img src='https://readymadeui.com/profile.webp' class="w-9 h-9 rounded-md shrink-0" />
-            <div class="ml-4">
-              <p class="text-sm text-black">Jennie Cooper</p>
-            </div>
-          </div>
-        </td>
-        
-        <td class="px-6 py-3 text-sm">
-        The United Kingdom is one of the greatest world powers, its political , <br> economic , cultural , military , scientific and technological influence <br> 
-        </td>
-        
-        <td class="px-6 py-3">
-        <button class="mr-4 font-bold hover:text-red-300" >
-            Archived
-          </button>
-        </td>
-      </tr>
-      <tr class="odd:bg-blue-50">
-        <td class="px-6 py-3 text-sm">
-          <div class="flex items-center cursor-pointer">
-            <img src='https://readymadeui.com/profile_3.webp' class="w-9 h-9 rounded-md shrink-0" />
-            <div class="ml-4">
-              <p class="text-sm text-black">Philip Steward</p>
-            </div>
-          </div>
-        </td>
-        
-        <td class="px-6 py-3 text-sm">
-        The United Kingdom is one of the greatest world powers, its political , <br> economic , cultural , military , scientific and technological influence <br> 
-        </td>
-        
-        <td class="px-6 py-3">
-        <button class="mr-4 font-bold hover:text-red-300" >
-            Archived
-          </button>
-        </td>
-      </tr>
-      <tr class="odd:bg-blue-50">
-        <td class="px-6 py-3 text-sm">
-          <div class="flex items-center cursor-pointer">
-            <img src='https://readymadeui.com/profile_2.webp' class="w-9 h-9 rounded-md shrink-0" />
-            <div class="ml-4">
-              <p class="text-sm text-black">Jorge Black</p>
-            </div>
-          </div>
-        </td>
-        
-        <td class="px-6 py-3 text-sm">
-        The United Kingdom is one of the greatest world powers, its political , <br> economic , cultural , military , scientific and technological influence <br> 
-        </td>
-        
-        <td class="px-6 py-3">
-        <button class="mr-4 font-bold hover:text-red-300" >
-            Archived
-          </button>
-          
-        </td>
-      </tr>
-      <tr class="odd:bg-blue-50">
-        <td class="px-6 py-3 text-sm">
-          <div class="flex items-center cursor-pointer">
-            <img src='https://readymadeui.com/profile_6.webp' class="w-9 h-9 rounded-md shrink-0" />
-            <div class="ml-4">
-              <p class="text-sm text-black">Evan Flores</p>
-            </div>
-          </div>
-        </td>
-        
-        <td class="px-6 py-3 text-sm">
-        The United Kingdom is one of the greatest world powers, its political , <br> economic , cultural , military , scientific and technological influence <br> 
-        </td>
-        
-        <td class="px-6 py-3">
-        <button class="mr-4 font-bold hover:text-red-300" >
-            Archived
-          </button>
+          </form>
         </td>
       </tr>
     </tbody>
   </table>
- 
-</div>
+   </div>
 
 
 <div class="overflow-x-auto py-8">
@@ -246,95 +166,11 @@
         </td>
         
         <td class="px-6 py-3">
-       
-          <button class="mr-4 font-bold text-gray-500 hover:text-green-300" >
+        <form action="" method="post">
+          <button type="submit" name="unarchive" class="mr-4 font-bold text-gray-500 hover:text-green-300" >
             Disarchived
           </button>
-        </td>
-      </tr>
-      <tr class="odd:bg-blue-50">
-        <td class="px-6 py-3 text-sm">
-          <div class="flex items-center cursor-pointer">
-            <img src='https://readymadeui.com/profile.webp' class="w-9 h-9 rounded-md shrink-0" />
-            <div class="ml-4">
-              <p class="text-sm text-black">Jennie Cooper</p>
-            </div>
-          </div>
-        </td>
-        
-        <td class="px-6 py-3 text-sm">
-        The United Kingdom is one of the greatest world powers, its political , <br> economic , cultural , military , scientific and technological influence <br> 
-        </td>
-        
-        <td class="px-6 py-3">
-          
-          <button class="mr-4 font-bold text-gray-500 hover:text-green-300" >
-            Disarchived
-          </button>
-        </td>
-      </tr>
-      <tr class="odd:bg-blue-50">
-        <td class="px-6 py-3 text-sm">
-          <div class="flex items-center cursor-pointer">
-            <img src='https://readymadeui.com/profile_3.webp' class="w-9 h-9 rounded-md shrink-0" />
-            <div class="ml-4">
-              <p class="text-sm text-black">Philip Steward</p>
-            </div>
-          </div>
-        </td>
-        
-        <td class="px-6 py-3 text-sm">
-        The United Kingdom is one of the greatest world powers, its political , <br> economic , cultural , military , scientific and technological influence <br> 
-        </td>
-        
-        <td class="px-6 py-3">
-         
-          <button class="mr-4 font-bold text-gray-500 hover:text-green-300" >
-            Disarchived
-          </button>
-        </td>
-      </tr>
-      <tr class="odd:bg-blue-50">
-        <td class="px-6 py-3 text-sm">
-          <div class="flex items-center cursor-pointer">
-            <img src='https://readymadeui.com/profile_2.webp' class="w-9 h-9 rounded-md shrink-0" />
-            <div class="ml-4">
-              <p class="text-sm text-black">Jorge Black</p>
-            </div>
-          </div>
-        </td>
-        
-        <td class="px-6 py-3 text-sm">
-        The United Kingdom is one of the greatest world powers, its political , <br> economic , cultural , military , scientific and technological influence <br> 
-        </td>
-        
-        <td class="px-6 py-3">
-        
-          <button class="mr-4 font-bold text-gray-500 hover:text-green-300" >
-            Disarchived
-          </button>
-          
-        </td>
-      </tr>
-      <tr class="odd:bg-blue-50">
-        <td class="px-6 py-3 text-sm">
-          <div class="flex items-center cursor-pointer">
-            <img src='https://readymadeui.com/profile_6.webp' class="w-9 h-9 rounded-md shrink-0" />
-            <div class="ml-4">
-              <p class="text-sm text-black">Evan Flores</p>
-            </div>
-          </div>
-        </td>
-        
-        <td class="px-6 py-3 text-sm">
-        The United Kingdom is one of the greatest world powers, its political , <br> economic , cultural , military , scientific and technological influence <br> 
-        </td>
-        
-        <td class="px-6 py-3">
-         
-          <button class="mr-4 font-bold text-gray-500 hover:text-green-300" >
-            Disarchived
-          </button>
+        </form>
         </td>
       </tr>
     </tbody>

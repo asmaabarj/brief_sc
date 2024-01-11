@@ -108,6 +108,27 @@ class wikiService{
     }
 
 
+
+
+    public function ArchivedWiki($id)
+    {
+
+        $conn = $this->connect();
+        $query = "UPDATE wiki set wiki_statut = TRUE WHERE wiki_id =:id";
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+    }
+    public function disarchivedWiki($id)
+    {
+
+        $conn = $this->connect();
+        $query = "UPDATE wiki set wiki_statut = False WHERE wiki_id =:id";
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+    }
+
     } 
 
 
