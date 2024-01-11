@@ -129,6 +129,35 @@ class wikiService{
         $stmt->execute();
     }
 
-    } 
+public function selectArchivedWikis(){
+    $query ="SELECT * FROM wiki WHERE wiki_statut = False ";
+    $conn= $this->connect();
+    $stmt=$conn->prepare($query);
+    $stmt->execute();
+    $archivedWiki= $stmt->fetchAll(PDO::FETCH_ASSOC);
+     $archivedWikis=array();
+     
+     foreach($archivedWiki as $wikiwiki){
+        $archivedWikis[]= new wiki ($wikiwiki['wiki_id'],$wikiwiki['wiki_image'],$wikiwiki['wiki_title'],$wikiwiki['wiki_content'],$wikiwiki['wiki_summarize'],$wikiwiki['created_at'],$wikiwiki['category_id'],$wikiwiki['user_id'],$wikiwiki['wiki_statut']);
+     }
+     return $archivedWikis;
+}
+
+public function selectDisarchivedWikis(){
+    $query ="SELECT * FROM wiki WHERE wiki_statut = True ";
+    $conn= $this->connect();
+    $stmt=$conn->prepare($query);
+    $stmt->execute();
+    $disarchivedWiki= $stmt->fetchAll(PDO::FETCH_ASSOC);
+     $disarchivedWikis=array();
+     
+     foreach($disarchivedWiki as $wikiwiki){
+        $disarchivedWikis[]= new wiki ($wikiwiki['wiki_id'],$wikiwiki['wiki_image'],$wikiwiki['wiki_title'],$wikiwiki['wiki_content'],$wikiwiki['wiki_summarize'],$wikiwiki['created_at'],$wikiwiki['category_id'],$wikiwiki['user_id'],$wikiwiki['wiki_statut']);
+     }
+     return $disarchivedWikis;
+}
+}
+
+    
 
 

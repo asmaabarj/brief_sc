@@ -85,5 +85,7 @@ if (isset($_POST['unarchive'])) {
     $WikisService->disarchivedWiki($id);
     header('Location: ../views/admin/wikis.php');
 }
+$archiver=$WikisService->selectArchivedWikis();
+$disarchiver=$WikisService->selectDisarchivedWikis();
 
 ?>

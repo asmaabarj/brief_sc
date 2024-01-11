@@ -1,4 +1,7 @@
+<?php
+require_once(__DIR__."/../../controllers/ConWiki.php");
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -103,18 +106,20 @@
       </tr>
     </thead>
     <tbody class="whitespace-nowrap">
+    <?php
+          foreach ($archiver as $archive) :
+          ?>
       <tr class="odd:bg-blue-50">
         <td class="px-6 py-3 text-sm">
           <div class="flex items-center cursor-pointer">
-            <img src='https://readymadeui.com/profile_4.webp' class="w-9 h-9 rounded-md shrink-0" />
+            <img src='<?= $archive->__get('wiki_image'); ?>' class="w-9 h-9 rounded-md shrink-0" />
             <div class="ml-4">
-              <p class="text-sm text-black">Gladys Jones</p>
+              <p class="text-sm text-black"><?= $archive->__get('wiki_title'); ?> </p>
             </div>
           </div>
         </td>
         
-        <td class="px-6 py-3 text-sm w-[30vw]">
-        The United Kingdom is one of the greatest world powers, its political , <br> economic , cultural , military , scientific and technological influence <br> 
+        <td class="px-6 py-3 text-sm w-[30vw]"><?= $archive->__get('wiki_summarize'); ?>
         </td>
         
         <td class="px-6 py-3">
@@ -125,6 +130,9 @@
           </form>
         </td>
       </tr>
+      <?php
+          endforeach;
+          ?>
     </tbody>
   </table>
    </div>
@@ -151,18 +159,20 @@
       </tr>
     </thead>
     <tbody class="whitespace-nowrap">
+    <?php
+          foreach ($disarchiver as $disarchive) :
+          ?>
       <tr class="odd:bg-blue-50">
         <td class="px-6 py-3 text-sm">
           <div class="flex items-center cursor-pointer">
-            <img src='https://readymadeui.com/profile_4.webp' class="w-9 h-9 rounded-md shrink-0" />
+            <img src='<?= $disarchive->__get('wiki_image'); ?>' class="w-9 h-9 rounded-md shrink-0" />
             <div class="ml-4">
-              <p class="text-sm text-black">Gladys Jones</p>
+              <p class="text-sm text-black"><?= $disarchive->__get('wiki_title'); ?></p>
             </div>
           </div>
         </td>
         
-        <td class="px-6 py-3 text-sm w-[30vw]">
-        The United Kingdom is one of the greatest world powers, its political , <br> economic , cultural , military , scientific and technological influence <br> 
+        <td class="px-6 py-3 text-sm w-[30vw]"><?= $disarchive->__get('wiki_summarize'); ?>
         </td>
         
         <td class="px-6 py-3">
@@ -173,6 +183,9 @@
         </form>
         </td>
       </tr>
+      <?php
+          endforeach;
+          ?>
     </tbody>
   </table>
  
