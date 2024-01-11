@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__.'/../config/database.php');
 
-
+session_start();
 
 class tagService{
     use database;
@@ -45,11 +45,11 @@ class tagService{
     }
 
 
-    public function updateTag(category $tag,$id){
+    public function updateTag(tag $tag,$id){
         $conn = $this->connect();
         $name = $tag->__get('tag_name');
     
-        $query = "UPDATE tag SET tag_name = :name";
+        $query = "UPDATE tag SET tag_name = :name WHERE tag_id = :id";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(":id", $id);
         $stmt->bindParam(":name", $name);
