@@ -15,10 +15,10 @@ if (isset($_POST["register"])) {
     $cpassword = $_POST["cpassword"];
     $id = '';
     $emails =  $Userservice->cheking($email);
-    if ($fullname != '' && $email != '' && $password != '' && $cpassword != '') {
+    if ($fullname != '' && $email != '' && $password != '' && $cpassword != '' && preg_match('/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/',$email) && preg_match('/^[A-Za-z\s-]+$/',$fullname) ) {
         if ($password === $cpassword) {
             if ($emails) {
-                $_SESSION['exist'] = 'E-mail already exists';
+                $_SESSION['error'] = 'E-mail already exists';
                 header('Location: ../views/authentification/signUp.php');
             } else {
                 $hashing = password_hash($password, PASSWORD_DEFAULT);
@@ -34,7 +34,7 @@ if (isset($_POST["register"])) {
             header('Location: ../views/authentification/signUp.php');
         }
     }else {
-        $_SESSION['empty'] = 'Empty Input invalid';
+        $_SESSION['error'] = 'Empty Input invalid';
             header('Location: ../views/authentification/signUp.php');
     }
 }
