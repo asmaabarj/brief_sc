@@ -86,58 +86,47 @@ else{
             </ul>
             
         </div>
-        <div class="p-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-                <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
-                    <div class="flex justify-between ">
-                        <div>
-                            <div class="text-2xl font-semibold mb-1">10</div>
-                            <div class="text-sm font-medium text-gray-400">Authors</div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
-                    <div class="flex justify-between mb-6">
-                        <div>
-                            <div class="text-2xl font-semibold mb-1">10</div>
-                            <div class="text-sm font-medium text-gray-400">Categories</div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
-                    <div class="flex justify-between ">
-                        <div>
-                            <div class="text-2xl font-semibold mb-1">10</div>
-                            <div class="text-sm font-medium text-gray-400">Wikis</div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
-                    <div class="flex justify-between ">
-                        <div>
-                            <div class="text-2xl font-semibold mb-1">10</div>
-                            <div class="text-sm font-medium text-gray-400">Tags</div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-
+        
 
                 
             
                 <div class="bg-white border border-gray-100 shadow-md shadow-black/5 p-6 rounded-md">
                     <div class="flex justify-between mb-4 items-start">
-                        <div class="font-medium">Tags</div>
                         
                     </div>
+                    <button data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="block text-white bg-gray-800 hover:bg-black focus:ring-4 absolute  right-10 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center  " type="button">
+  Add Tag
+</button>
+<div id="crud-modal" class="hidden h-screen w-full fixed top-0 left-0 bg-black/10 z-50 flex justify-center items-center">
+    <div class="relative p-4 w-full max-w-md max-h-full">
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                    Create New Tag
+                </h3>
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="crud-modal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <form class="p-4 md:p-5">
+                <div class="grid gap-4 mb-4 grid-cols-2">
+                    <div class="col-span-2">
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                        <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type Tag name" required="">
+                    </div>
+                    
+                </div>
+                <button type="submit" class="text-white inline-flex items-center bg-gray-900 hover:bg-black focus:ring-4 focus:outline-none focus:ring-gray-900 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-800 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
+                    Add new tag
+                </button>
+            </form>
+        </div>
+    </div>
+</div> 
                    
                     <div class="overflow-x-auto py-8">
   <table class="min-w-[50%] mx-auto  bg-white font-[sans-serif]">
@@ -318,5 +307,7 @@ else{
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../../../public/Js/script.js"></script>
+    <script src="../../../public/Js/modal.js"></script>
+
 </body>
 </html>
