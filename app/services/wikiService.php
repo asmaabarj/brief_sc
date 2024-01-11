@@ -41,7 +41,24 @@ class wikiService{
     
     }
 
+    public function selectWiki($id){
 
+        $conn = $this->connect();
+        $query ="SELECT * FROM wiki WHERE wiki_statut = FALSE AND user_id = :id
+        ";
+         $stmt = $conn->prepare($query);
+         $stmt->bindParam(":id", $id);
+         $stmt->execute();
+         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+         $wikis = array();
+         foreach($result as $wiki){
+            
+    
+     $wikis[] =   new wiki($wiki["wiki_id"], $wiki["wiki_image"], $wiki["wiki_title"],$wiki['wiki_content'],$wiki["wiki_summarize"],$wiki['created_at'], $wiki["category_id"],$wiki['user_id'],$wiki['wiki_statut']);
+        }
+    return $wikis;
+    
+    }
 
 
 

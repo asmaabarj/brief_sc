@@ -18,13 +18,13 @@ if (isset($_POST["addWiki"])) {
     if ($wikiTitile !== '' && $wikiSummary !== '' && $wikiContent !== '' && $wikiCategory !== ''   ) {
 
      
-            $wikis = new wiki($id, URLROOT . 'public/images/' . $image, $wikiTitile, $wikiContent, $wikiSummary, $wikiCategory, $wikiAuthor, $WikiStatus);
+            $wikis = new wiki($id, URLROOT . 'public/images/' . $image, $wikiTitile, $wikiContent, $wikiSummary, $created_at, $wikiCategory, $wikiAuthor, $WikiStatus);
             $wikiId =  $WikisService->addWikis($wikis);
             foreach ($selectedTags as $selectedTag) {
                 $wikistags = new WikisTags($wikiId, $selectedTag);
                 $WikisService->TagsOfWikis($wikistags);
             }
-            header('Location: ../views/client/AddWiki.php');
+            header('Location: ../views/client/addWiki.php');
     
     } else {
         $_SESSION['error'] = 'Empty Input or invalid Information';
@@ -32,6 +32,7 @@ if (isset($_POST["addWiki"])) {
     }
 }
 
-
+$wikisAuteur = $WikisService->selectWiki($_SESSION['user']);
+// var_dump($wikisAuteur);
 
 ?>

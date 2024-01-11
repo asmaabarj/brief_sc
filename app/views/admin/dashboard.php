@@ -1,7 +1,8 @@
 <?php 
+require_once(__DIR__."/../../controllers/conUser.php");
+
 session_start();
 if(isset($_SESSION['user'])){
-    $welcom =  'WELCOM :'. $_SESSION['username'];
 }
 else{
     header('Location: ../authentification/signIn.php');
@@ -142,6 +143,7 @@ else{
                         <table class="w-full min-w-[540px]">
                             <thead>
                                 <tr>
+
                                     <th class="text-[12px] uppercase tracking-wide font-medium text-gray-400 py-2 px-4 bg-gray-50 text-left rounded-tl-md rounded-bl-md">Name</th>
                                     <th class="text-[12px] uppercase tracking-wide font-medium text-gray-400 py-2 px-4 bg-gray-50 text-left">Email</th>
                                 </tr>

@@ -36,7 +36,7 @@
           <input type='text' placeholder='Search...' class=" outline-none w-[50vw] bg-gray-50 text-black text-sm" />
       </div>
 
-
+<a href="myWikis.php">mywekkis</a>
    <section class="grid md:grid-cols-3 grid-cols-1 md:w-[85%] mt-10 m-auto ">
          
   <div class="bg-white shadow-[0_2px_18px_-6px_rgba(0,0,0,0.2)] md:w-[25vw] w-full max-w-sm rounded-[3px] font-[sans-serif] overflow-hidden mx-auto mt-4 md:h-[60vh]">
