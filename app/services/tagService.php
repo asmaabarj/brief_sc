@@ -32,6 +32,30 @@ class tagService{
          return $tags;
     }
 
+    public function showTag($id){
+        $query ="SELECT * FROM tag WHERE tag_id = :id";
+        $conn= $this->connect();
+        $stmt=$conn->prepare($query);
+        $stmt->bindParam(":id",$id);
+
+        $stmt->execute();
+        $result=$stmt->fetch(PDO::FETCH_ASSOC);
+        $name=$result["tag_name"];
+        return [$name];
+    }
+
+
+    public function updateTag(category $tag,$id){
+        $conn = $this->connect();
+        $name = $tag->__get('tag_name');
+    
+        $query = "UPDATE tag SET tag_name = :name";
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(":id", $id);
+        $stmt->bindParam(":name", $name);
+        $stmt->execute();
+    }
+
     public function deleteTag($id){
         $conn = $this->connect();
         $query = "DELETE FROM tag WHERE tag_id = :id";

@@ -1,6 +1,6 @@
 <?php
 require_once(__DIR__.'/../config/database.php');
-
+session_start();
 
 
 class categoryService{
@@ -37,13 +37,28 @@ class categoryService{
     }
 
 
+    public function showCat($id){
+        $query ="SELECT * FROM category WHERE category_id = :id";
+        $conn= $this->connect();
+        $stmt=$conn->prepare($query);
+        $stmt->bindParam(":id",$id);
+
+        $stmt->execute();
+        $result=$stmt->fetch(PDO::FETCH_ASSOC);
+        $name=$result["category_name"];
+        $description=$result["category_desc"];
+        $image=$result["category_image"];
+        return [$name,$description,$image];
+    }
+
+
     public function updateCat(category $category,$id){
         $conn = $this->connect();
         $name = $category->__get('category_name');
-        $description = $category->__get('category_description');
+        $description = $category->__get('category_desc');
         $image = $category->__get('category_image');
     
-        $query = "UPDATE category SET category_name = :name, category_description = :description, category_image = :image WHERE category_id = :id";
+        $query = "UPDATE category SET category_name = :name, category_desc = :description, category_image = :image WHERE category_id = :id";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(":id", $id);
         $stmt->bindParam(":name", $name);
