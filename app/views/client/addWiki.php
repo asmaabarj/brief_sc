@@ -27,23 +27,23 @@ require_once(__DIR__ . "/../../controllers/ContCategory.php");
         <div class="grid md:grid-cols-2 md:gap-6 mx-4 lg:w-1/2 lg:mx-auto">
             <div class="mb-5">
                 <label for="name" class="block mb-2 text-sm font-medium text-white dark:text-white">Wiki Title</label>
-                <input type="text" id="name" name="Title" value="<?= $title ?>" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Title">
+                <input type="text" id="name" required name="Title" value="<?= $title ?>" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Title">
             </div>
             <div class="mb-5">
 
 
                 <label class="block mb-2 text-sm font-medium text-white " for="multiple_files">Wiki Image</label>
-                <input type="file" name="image"  class="block w-full bg-white rounded-lg text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+                <input type="file" name="image" required  class="block w-full bg-white rounded-lg text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
             </div>
         </div>
         <div class="mb-5 mx-4 lg:w-1/2 lg:mx-auto">
             <label for="summary" class="block mb-2 text-sm font-medium text-white dark:text-white">Wiki summary</label>
-            <input type="text" name="summary" value="<?= $description ?>" id="summary" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="summary">
+            <input type="text" name="summary" required value="<?= $description ?>" id="summary" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="summary">
         </div>
         <div class="mb-10 mx-4 lg:w-1/2 lg:mx-auto h-[30vh]">
 
             <label for="message" class="block mb-2 text-sm font-medium text-white dark:text-white">Wiki Content</label>
-            <textarea id="message" name="content" rows="4"  class="block  p-2.5 w-full h-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Share Your content here ..."><?= $content ?></textarea>
+            <textarea id="message" required name="content" rows="4"  class="block  p-2.5 w-full h-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Share Your content here ..."><?= $content ?></textarea>
 
         </div>
         <?php if (isset($_SESSION['Idwiki'])) {
@@ -51,7 +51,7 @@ require_once(__DIR__ . "/../../controllers/ContCategory.php");
 
             <div class="grid mb-10 md:grid-cols-2 md:gap-6 mx-4 lg:w-1/2 lg:mx-auto">
 
-                <select id="Catgories" name="category" class="bg-gray-50 border h-[65px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                <select id="Catgories" required name="category" class="bg-gray-50 border h-[65px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                     <option selected>Choose a Category</option>
 
                     <?php foreach ($resultCat as $cat) : ?>
@@ -63,7 +63,7 @@ require_once(__DIR__ . "/../../controllers/ContCategory.php");
                 <div class="space-y-6 mt-4 md:mt-0 h-[65px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  p-2.5  overflow-auto scrollbar-w-2 scrollbar-track-gray-100 scrollbar-thumb-[#007bff]">
                     <?php foreach ($result as $tag) : ?>
                         <div class="flex items-center">
-                            <input id="checkbox1" type="checkbox" name="nametag[]" value="<?= $tag->__get('id') ?>" class="w-4 h-4 mr-3 focus:ring-1 focus:ring-offset-slate-200 focus:ring-offset-4 focus:ring-[#007bff]" />
+                            <input id="checkbox1"  type="checkbox" name="nametag[]" value="<?= $tag->__get('id') ?>" class="w-4 h-4 mr-3 focus:ring-1 focus:ring-offset-slate-200 focus:ring-offset-4 focus:ring-[#007bff]" />
                             <label for="checkbox1" class="text-black text-sm"><?= $tag->__get('tag_name') ?></label>
                         </div>
                     <?php endforeach; ?>

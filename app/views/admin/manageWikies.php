@@ -118,7 +118,7 @@ require_once(__DIR__."/../../controllers/ConWiki.php");
           </div>
         </td>
         
-        <td class="px-6 py-3 text-sm w-[30vw]"><?= $archive->__get('wiki_summarize'); ?>
+        <td class="truncate px-6 py-3 text-sm max-w-[300px]"><?= $archive->__get('wiki_summarize'); ?>
         </td>
         <td class="px-6 py-3">
           <form action="../../controllers/conWiki.php" method="post">
@@ -170,7 +170,7 @@ require_once(__DIR__."/../../controllers/ConWiki.php");
           </div>
         </td>
         
-        <td class="px-6 py-3 text-sm w-[30vw]"><?= $disarchive->__get('wiki_summarize'); ?>
+        <td class="truncate px-6 py-3 text-sm max-w-[300px]"><?= $disarchive->__get('wiki_summarize'); ?>
         </td>
         
         <td class="px-6 py-3">

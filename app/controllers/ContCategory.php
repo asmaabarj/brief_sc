@@ -14,8 +14,9 @@ if(isset($_POST["addCat"])){
    $category = new category($idCat, $nameCat, $desc, URLROOT.'public/images/'. $image);
    $categoryService->addCat($category);
    header('Location: ../views/admin/manageCategory.php');
-
 }
+
+
 $resultCat=$categoryService->selectCat();
 
 
@@ -30,6 +31,7 @@ if(isset($_POST["delete"])){
 $name='';
 $description='';
 $image='';
+
 if(isset($_POST["edit"])){
     $id = $_POST["edit"];
    $data = $categoryService->showCat($id);  
@@ -37,9 +39,9 @@ if(isset($_POST["edit"])){
     $_SESSION['categories'] = $data;
     $_SESSION['idcat'] = $id;
         header('Location: ../views/admin/manageCategory.php');
-
    }    
 }  
+
    if(isset($_POST["updateCat"])){
     $id = $_POST['updateCat'];
     $nameCat = $_POST["nameCat"];
@@ -52,7 +54,9 @@ if(isset($_POST["edit"])){
     unset($_SESSION['idcat']);
     header('Location: ../views/admin/manageCategory.php');
 }
+
+
 $CountCategories=$categoryService->CountCatgories();
 
 
-    ?>
+?>

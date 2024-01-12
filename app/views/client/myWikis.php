@@ -50,7 +50,7 @@ require_once(__DIR__ . "/../../controllers/conWiki.php");
                 </div>
               </td>
 
-              <td class="px-6 py-3 text-sm w-[30vw]"><?= $wiki->__get('wiki_summarize') ?>
+              <td class="truncate px-6 py-3 text-sm max-w-[300px]"><?= $wiki->__get('wiki_summarize') ?>
               </td>
               <td class="px-6 py-3 text-sm w-[30vw]"><?= $wiki->__get('created_at') ?>
               </td>

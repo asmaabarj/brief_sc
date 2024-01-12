@@ -32,6 +32,8 @@ if (isset($_POST["addWiki"])) {
     }
 }
 
+
+
 $wikisAuteur = $WikisService->selectWiki($_SESSION['user']);
 // var_dump($wikisAuteur);
 if(isset($_POST["delete"])){
@@ -46,6 +48,8 @@ $description='';
 $image='';
 $content='';
 
+
+
 if(isset($_POST["edit"])){
     $id = $_POST["edit"];
    $data = $WikisService->showWiki($id);  
@@ -55,7 +59,10 @@ if(isset($_POST["edit"])){
         header('Location: ../views/client/addWiki.php');
 
    }    
-}  
+} 
+
+
+
    if(isset($_POST["updateWiki"])){
     $id = $_POST['updateWiki'];
     $wikiTitile = $_POST["Title"];
@@ -78,6 +85,7 @@ if(isset($_POST["edit"])){
 
 $archiver=$WikisService->selectArchivedWikis();
 $disarchiver=$WikisService->selectDisarchivedWikis();
+
 
 if (isset($_POST['archive'])) {
     $id = $_POST['archive'];

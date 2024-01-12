@@ -11,10 +11,11 @@ if(isset($_POST["addTag"])){
    $tag = new tag($idTag, $nameTag );
    $tagService->addTag($tag);
    header('Location: ../views/admin/manageTag.php');
-
-
 }
 $result=$tagService->selectTag();
+
+
+
 
 if(isset($_POST["delete"])){
     $id = $_POST["delete"];
@@ -31,8 +32,10 @@ if(isset($_POST["edit"])){
     $_SESSION['tags'] = $data;
     $_SESSION['idtag'] = $id;
     header('Location: ../views/admin/manageTag.php');
-
-   }    
+   } 
+   
+   
+   
 }  
    if(isset($_POST["updateTag"])){
     $id = $_POST['updateTag'];
