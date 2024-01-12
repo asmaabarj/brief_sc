@@ -123,14 +123,14 @@ class wikiService{
     {
 
         $conn = $this->connect();
-        $query = "UPDATE wiki set wiki_statut = False WHERE wiki_id =:id";
+        $query = "UPDATE wiki set wiki_statut = FALSE WHERE wiki_id =:id";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(":id", $id);
         $stmt->execute();
     }
 
 public function selectArchivedWikis(){
-    $query ="SELECT * FROM wiki WHERE wiki_statut = False ";
+    $query ="SELECT * FROM wiki WHERE wiki_statut = FALSE ";
     $conn= $this->connect();
     $stmt=$conn->prepare($query);
     $stmt->execute();
@@ -144,7 +144,7 @@ public function selectArchivedWikis(){
 }
 
 public function selectDisarchivedWikis(){
-    $query ="SELECT * FROM wiki WHERE wiki_statut = True ";
+    $query ="SELECT * FROM wiki WHERE wiki_statut = TRUE ";
     $conn= $this->connect();
     $stmt=$conn->prepare($query);
     $stmt->execute();

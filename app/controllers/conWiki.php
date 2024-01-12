@@ -75,17 +75,21 @@ if(isset($_POST["edit"])){
     header('Location: ../views/client/myWikis.php');
 }
 
+
+$archiver=$WikisService->selectArchivedWikis();
+$disarchiver=$WikisService->selectDisarchivedWikis();
+
 if (isset($_POST['archive'])) {
     $id = $_POST['archive'];
     $WikisService->ArchivedWiki($id);
-    header('Location: ../views/admin/wikis.php');
+    header('Location: ../views/admin/manageWikies.php');
 }
 if (isset($_POST['unarchive'])) {
     $id = $_POST['unarchive'];
     $WikisService->disarchivedWiki($id);
-    header('Location: ../views/admin/wikis.php');
+    header('Location: ../views/admin/manageWikies.php');
 }
-$archiver=$WikisService->selectArchivedWikis();
-$disarchiver=$WikisService->selectDisarchivedWikis();
+
+
 
 ?>

@@ -1,6 +1,5 @@
 <?php
 require_once(__DIR__."/../../controllers/ConWiki.php");
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -108,7 +107,7 @@ require_once(__DIR__."/../../controllers/ConWiki.php");
     <tbody class="whitespace-nowrap">
     <?php
           foreach ($archiver as $archive) :
-          ?>
+          ?> 
       <tr class="odd:bg-blue-50">
         <td class="px-6 py-3 text-sm">
           <div class="flex items-center cursor-pointer">
@@ -121,10 +120,9 @@ require_once(__DIR__."/../../controllers/ConWiki.php");
         
         <td class="px-6 py-3 text-sm w-[30vw]"><?= $archive->__get('wiki_summarize'); ?>
         </td>
-        
         <td class="px-6 py-3">
-          <form action="" method="post">
-          <button type="submit" name="archive" class="mr-4 font-bold hover:text-red-300" >
+          <form action="../../controllers/conWiki.php" method="post">
+          <button type="submit" name="archive" value="<?= $archive->__get('id'); ?>" class="mr-4 font-bold hover:text-red-300" >
             Archived
           </button>   
           </form>
@@ -176,8 +174,8 @@ require_once(__DIR__."/../../controllers/ConWiki.php");
         </td>
         
         <td class="px-6 py-3">
-        <form action="" method="post">
-          <button type="submit" name="unarchive" class="mr-4 font-bold text-gray-500 hover:text-green-300" >
+        <form action="../../controllers/conWiki.php" method="post">
+          <button type="submit" name="unarchive" value="<?= $disarchive->__get('id'); ?>" class="mr-4 font-bold text-gray-500 hover:text-green-300" >
             Disarchived
           </button>
         </form>
