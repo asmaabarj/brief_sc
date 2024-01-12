@@ -1,10 +1,11 @@
 <?php
-require_once(__DIR__."/../../controllers/ConWikipage.php");
+require_once(__DIR__."/../../controllers/ConWiki.php");
+require_once(__DIR__ . "/../../controllers/ContCategory.php");
+
 
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,60 +14,97 @@ require_once(__DIR__."/../../controllers/ConWikipage.php");
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
-
 </head>
 <body>
 <header class=' py-2 px-2 sm:px-10  min-h-[70px]'>
     <div class='flex justify-between items-center gap-x-4  '>
-      <a href="index.php"><img src="../../../public/images/wikilogo.png" alt="logo" class='w-16' />
+      <a href="index.php"><img src="../../../public/images/wikilogo.png" alt="logo" class='w-20 h-12' />
       </a>  
-      <div class=" flex justify-between gap-4">
+      <div class=" flex justify-between gap-10">
         <ul class='lg:!flex lg:flex-auto '> 
           <li class=' lg:items-center ml-auto '>
-            <a href='' class='lg:hover:text-[#007bff] text-gray-700 block font-bold text-[15px]'>sign in</a>
+            <a href='myWikis.php' class='lg:hover:text-[#007bff] bg-gray-800 px-4 py-2 rounded-[5px] text-gray-100 block font-bold text-[15px]'>My Wikis</a>
           </li>
         </ul>
-      <div class="border-l border-[#333] h-6 max-lg:hidden "></div>   
-        <a href='' class='flex items-center ml-auto lg:hover:text-[#007bff] text-gray-700 block font-bold text-[15px] mr-6 '>sign up</a>
+        <a href='../authentification/signIn.php' class='flex items-center ml-auto lg:hover:text-[#007bff] text-gray-700 block font-bold text-[15px] mr-2 '><svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512"><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"/></svg></a>
    </div>
   </header>
-
-  <div class="  mt-24 w-[80%] m-auto font-[sans-serif] ">
-    <div class="absolute right-0"><?=$wiki['category'];?></div>
-  <img src="<?=$wiki['wiki_image'];?>" class="w-full md:h-[80vh] bg-white shadow-[0_2px_18px_-6px_rgba(0,0,0,0.2)] " />
-
-  <div class="flex flex-wrap gap-1 mt-4">
-  <?php
-
-foreach ($wiki['tags'] as $tag) :
-?>
-  <button type="button"
-    class="px-5 py-[6px] rounded-full text-black text-xs outline-none border-[1px] border-[#333] hover:bg-[#222] hover:text-white "><?= $tag ?></button>
-    <?php endforeach;
-                            ?>
-</div>
-    <div class="px-4 md:h-[55%] mt-3">
-    <h3 class="text-2xl font-semibold "><?=$wiki['wiki_title'];?></h3>
-    <h2 class="text-[16px] text-blue-400"> <?=$wiki['username'];?></h2>
-    <div class="flex items-center gap-[5px]">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="10" width="10" fill="gray"
-                                    viewBox="0 0 512 512">
-                                    <path
-                                        d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
-                                </svg>
-                                <p class=" text-gray-600 text-[10px] 	">
-                                <?=$wiki['created_at'];?>                                </p>
-                            </div>
-    <p class="mt-2 text-[20px] text-gray-800 mb-10"><?=$wiki['wiki_content'];?>
-    </p>
-
-      
+   <main>
+    <section>
+    <div class="bg-gradient-to-r from-gray-200 to-gray-50 font-[sans-serif] text-gray-800 p-6">
+      <div class="grid md:grid-cols-2 items-center gap-10 max-w-5xl max-md:max-w-md mx-auto">
+        <div class="md:h-[400px]">
+          <img src="../../../public/images/wikipedia.jpg" class="w-full h-full object-contain" />
+        </div>
+        <div class="max-md:text-center">
+          <h3 class="md:text-3xl text-2xl md:leading-10">Discover Wiki™ where knowledge meets boundless exploration.</h3>
+          <p class="mt-6 text-sm">Welcome to our literary sanctuary, where every word is a gateway to the boundless realm of creativity. Join us to explore, write, and contribute to the collective epic of knowledge.</p>
+          <button type="button" class="px-6 py-2 mt-8 font-semibold rounded text-sm outline-none border-2 border-white">Explore</button>
+        </div>
+      </div>
     </div>
-  </div>
-<
+    </section>
 
+<section class="w-[90%] m-auto mt-20">
+<div class="bg-white font-[sans-serif]">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center">
+          <h2 class="text-3xl font-extrabold text-[#333] inline-block relative after:absolute after:w-4/6 after:h-1 after:left-0 after:right-0 after:-bottom-4 after:mx-auto after:bg-gray-400 after:rounded-full">CATEGORIES</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16 max-md:max-w-lg mx-auto">
+        <?php
+          foreach ($resultCate as $CATEGORIE) :
+          ?>
+          <div class="bg-white cursor-pointer rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] relative group">
+            <img src="<?= $CATEGORIE->__get('category_image'); ?>" alt="Blog Post 1" class="w-full h-96 object-cover" />
+            <div class="p-6 absolute bottom-0 left-0 right-0 bg-white opacity-90">
+              <h3 class="text-xl font-bold text-[#333]"><?= $CATEGORIE->__get('category_name'); ?></h3>
+              <div class="h-0 overflow-hidden group-hover:h-16 group-hover:mt-4 transition-all duration-300">
+                <p class="text-gray-600 text-sm"><?= $CATEGORIE->__get('category_desc'); ?></p>
+              </div>
+            </div>
+          </div>
+          <?php
+          endforeach;
+          ?>
+        </div>
+      </div>
+    </div>
+    
+</section>
+<div class="flex justify-center mt-5">
+<a href="allCategories.php"><button type="button" 
+    class="px-6 py-2 rounded text-black text-sm tracking-wider font-medium outline-none border-2 border-[#333] hover:bg-[#222] hover:text-white transition-all duration-300">Show more Categories</button>
+    </a></div>
+    <section class="mt-24">
+<div class="bg-white font-[sans-serif] p-4">
+      <div class="max-w-6xl max-md:max-w-lg mx-auto">
+        <div>
+          <h2 class="text-3xl font-extrabold text-[#333] inline-block">LATEST WIKIS</h2>
+        </div>
+        <div class="grid grid-cols-1  gap-8 mt-10">
+        <?php
+          foreach ($archivee as $archive) :
+          ?>
+          <div class="flex max-lg:flex-col bg-white cursor-pointer rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] hover:scale-105 transition-all duration-300">
+            <img src="<?= $archive->__get('wiki_image'); ?>" alt="Blog Post 1" class="lg:w-2/5 min-h-[250px] h-full object-cover" />
+            <div class="p-6 lg:w-3/5">
+              <h3 class="text-xl font-bold text-[#333]"><?= $archive->__get('wiki_title'); ?></h3>
+              <span class="text-sm block text-gray-400 mt-2"><?= $archive->__get('created_at'); ?></span>
+              <p class="text-sm mt-4"><?= $archive->__get('wiki_summarize'); ?></p>
+              <a href="allWikis.php" class="mt-4 inline-block text-blue-600 text-sm hover:underline">show more wikis</a>
+            </div>
+          </div>
+          <?php
+          endforeach;
+          ?>
+        </div>
+      </div>
+    </div>
+</section>
 
-<footer class="bg-gray-900 font-[sans-serif] mt-10">
+   </main>
+  <footer class="bg-gray-900 font-[sans-serif] mt-10">
       <div class="px-10 md:px-16 py-12 grid sm:grid-cols-2 xl:grid-cols-4 gap-8">
         <div>
           <h4 class="text-white text-lg font-bold mb-6">About Us</h4>

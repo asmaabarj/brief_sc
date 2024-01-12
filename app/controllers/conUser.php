@@ -53,7 +53,7 @@ if (isset($_POST['login'])) {
 
         if (password_verify($logPwd, $password) && $role === 'author') {
 
-            header('Location: ../views/client/index.php');
+            header('Location: ../views/client/author.php');
         } else if (password_verify($logPwd, $password) && $role === 'admin') {
             header('Location: ../views/admin/dashboard.php');
         } else {

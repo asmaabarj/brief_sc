@@ -1,6 +1,10 @@
 <?php
 require_once(__DIR__."/../../controllers/ConWiki.php");
 require_once(__DIR__ . "/../../controllers/ContCategory.php");
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,23 +23,23 @@ require_once(__DIR__ . "/../../controllers/ContCategory.php");
       <div class=" flex justify-between gap-4">
         <ul class='lg:!flex lg:flex-auto '> 
           <li class=' lg:items-center ml-auto '>
-            <a href='' class='lg:hover:text-[#007bff] text-gray-700 block font-bold text-[15px]'>sign in</a>
+            <a href='../authentification/signIn.php' class='lg:hover:text-[#007bff] text-gray-700 block font-bold text-[15px]'>sign in</a>
           </li>
         </ul>
       <div class="border-l border-[#333] h-6 max-lg:hidden "></div>   
-        <a href='' class='flex items-center ml-auto lg:hover:text-[#007bff] text-gray-700 block font-bold text-[15px] mr-6 '>sign up</a>
+        <a href='../authentification/signUp.php' class='flex items-center ml-auto lg:hover:text-[#007bff] text-gray-700 block font-bold text-[15px] mr-6 '>sign up</a>
    </div>
   </header>
    <main>
     <section>
-    <div class="bg-gray-800 font-[sans-serif] text-white p-6">
+    <div class="bg-gradient-to-r from-gray-200 to-gray-50 font-[sans-serif] text-gray-800 p-6">
       <div class="grid md:grid-cols-2 items-center gap-10 max-w-5xl max-md:max-w-md mx-auto">
         <div class="md:h-[400px]">
-          <img src="https://readymadeui.com/hotel-img.webp" class="w-full h-full object-contain" />
+          <img src="../../../public/images/wikipedia.jpg" class="w-full h-full object-contain" />
         </div>
         <div class="max-md:text-center">
-          <h3 class="md:text-3xl text-2xl md:leading-10">Prompt Delivery and Enjoyable Dining Experience.</h3>
-          <p class="mt-6 text-sm">Laboris qui Lorem ad tempor ut reprehenderit. Nostrud anim nulla officia ea sit deserunt. Eu eu quis anim aute Laboris qui Lorem ad tempor ut reprehenderit.</p>
+          <h3 class="md:text-3xl text-2xl md:leading-10">Discover Wiki™ where knowledge meets boundless exploration.</h3>
+          <p class="mt-6 text-sm">Welcome to our literary sanctuary, where every word is a gateway to the boundless realm of creativity. Join us to explore, write, and contribute to the collective epic of knowledge.</p>
           <button type="button" class="px-6 py-2 mt-8 font-semibold rounded text-sm outline-none border-2 border-white">Explore</button>
         </div>
       </div>
@@ -46,7 +50,7 @@ require_once(__DIR__ . "/../../controllers/ContCategory.php");
 <div class="bg-white font-[sans-serif]">
       <div class="max-w-7xl mx-auto">
         <div class="text-center">
-          <h2 class="text-3xl font-extrabold text-[#333] inline-block relative after:absolute after:w-4/6 after:h-1 after:left-0 after:right-0 after:-bottom-4 after:mx-auto after:bg-pink-400 after:rounded-full">LATEST BLOGS</h2>
+          <h2 class="text-3xl font-extrabold text-[#333] inline-block relative after:absolute after:w-4/6 after:h-1 after:left-0 after:right-0 after:-bottom-4 after:mx-auto after:bg-gray-400 after:rounded-full">CATEGORIES</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16 max-md:max-w-lg mx-auto">
         <?php
@@ -67,12 +71,17 @@ require_once(__DIR__ . "/../../controllers/ContCategory.php");
         </div>
       </div>
     </div>
+    
 </section>
-<section class="mt-24">
+<div class="flex justify-center mt-5">
+<a href="allCategories.php"><button type="button" 
+    class="px-6 py-2 rounded text-black text-sm tracking-wider font-medium outline-none border-2 border-[#333] hover:bg-[#222] hover:text-white transition-all duration-300">Show more Categories</button>
+    </a></div>
+    <section class="mt-24">
 <div class="bg-white font-[sans-serif] p-4">
       <div class="max-w-6xl max-md:max-w-lg mx-auto">
         <div>
-          <h2 class="text-3xl font-extrabold text-[#333] inline-block">LATEST BLOGS</h2>
+          <h2 class="text-3xl font-extrabold text-[#333] inline-block">LATEST WIKIS</h2>
         </div>
         <div class="grid grid-cols-1  gap-8 mt-10">
         <?php
@@ -84,7 +93,7 @@ require_once(__DIR__ . "/../../controllers/ContCategory.php");
               <h3 class="text-xl font-bold text-[#333]"><?= $archive->__get('wiki_title'); ?></h3>
               <span class="text-sm block text-gray-400 mt-2"><?= $archive->__get('created_at'); ?></span>
               <p class="text-sm mt-4"><?= $archive->__get('wiki_summarize'); ?></p>
-              <a href="javascript:void(0);" class="mt-4 inline-block text-blue-600 text-sm hover:underline">Read More</a>
+              <a href="allWikis.php" class="mt-4 inline-block text-blue-600 text-sm hover:underline">show more wikis</a>
             </div>
           </div>
           <?php

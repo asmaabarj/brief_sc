@@ -3,6 +3,7 @@ require_once(__DIR__.'/../services/wikiService.php');
 require_once(__DIR__.'/../models/wiki.php');
 require_once(__DIR__.'/../models/wikis_tags.php');
 
+
 $WikisService = new wikiService();
 if (isset($_POST["addWiki"])) {
     $wikiTitile = $_POST["Title"];
@@ -24,7 +25,7 @@ if (isset($_POST["addWiki"])) {
                 $wikistags = new WikisTags($wikiId, $selectedTag);
                 $WikisService->TagsOfWikis($wikistags);
             }
-            header('Location: ../views/client/addWiki.php');
+            header('Location: ../views/client/myWikis.php');
     
     } else {
         $_SESSION['error'] = 'Empty Input or invalid Information';
@@ -35,7 +36,6 @@ if (isset($_POST["addWiki"])) {
 
 
 $wikisAuteur = $WikisService->selectWiki($_SESSION['user']);
-// var_dump($wikisAuteur);
 if(isset($_POST["delete"])){
     $id = $_POST["delete"];
     $WikisService->deleteWiki($id);        
@@ -101,5 +101,10 @@ if (isset($_POST['unarchive'])) {
 }
 
 $CountWikis=$WikisService->CountWikis();
+if (isset($_POST['search'])) {
+    $searchTerm = $_POST['search'];
+        $wikis = $WikisService->searchWikis($searchTerm);
+    require_once(__DIR__.'/../views/client/SearchWiki.php');
+    }
 
 ?>

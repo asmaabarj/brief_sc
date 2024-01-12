@@ -15,8 +15,25 @@ require_once(__DIR__ . "/../../controllers/conWiki.php");
 </head>
 
 <body>
-<div class="overflow-x-auto py-8">
-      <table class="min-w-[80%] mx-auto mt-36 bg-white font-[sans-serif]">
+<header class=' py-2 px-2 sm:px-10  min-h-[70px]'>
+    <div class='flex justify-between items-center gap-x-4  '>
+      <a href="index.php"><img src="../../../public/images/wikilogo.png" alt="logo" class='w-20 h-12' />
+      </a>  
+      <div class=" flex justify-between gap-10">
+        <ul class='lg:!flex lg:flex-auto '> 
+          <li class=' lg:items-center ml-auto '>
+            <a href='myWikis.php' class='lg:hover:text-[#007bff] bg-gray-800 px-4 py-2 rounded-[5px] text-gray-100 block font-bold text-[15px]'>My Wikis</a>
+          </li>
+        </ul>
+        <a href='../authentification/signIn.php' class='flex items-center ml-auto lg:hover:text-[#007bff] text-gray-700 block font-bold text-[15px] mr-2 '><svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512"><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"/></svg></a>
+   </div>
+  </header>
+  <main class="w-[80%] m-auto"></main>
+<a href="addWiki.php"><button type="button" 
+    class="px-6 py-2 mt-24 absolute right-32 w rounded text-black text-sm tracking-wider font-medium outline-none border-2 border-[#333] hover:bg-[#222] hover:text-white transition-all duration-300">add wiki</button>
+</a>
+<div class="overflow-x-auto mt-20 py-8">
+      <table class="min-w-[80%] mx-auto mt-10 bg-white font-[sans-serif]">
         <thead class="whitespace-nowrap">
           <tr>
             <th class="px-6 py-4 text-left text-sm font-semibold text-black">
