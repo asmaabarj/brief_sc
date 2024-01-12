@@ -18,6 +18,7 @@ if(isset($_POST["addCat"])){
 
 
 $resultCat=$categoryService->selectCat();
+$resultCate=$categoryService->selectCate();
 
 
 // var_dump($result);

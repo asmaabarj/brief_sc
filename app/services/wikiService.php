@@ -130,7 +130,20 @@ class wikiService{
     }
 
 public function selectArchivedWikis(){
-    $query ="SELECT * FROM wiki WHERE wiki_statut = FALSE ";
+    $query ="SELECT * FROM wiki WHERE wiki_statut = FALSE  ORDER BY wiki_id DESC";
+    $conn= $this->connect();
+    $stmt=$conn->prepare($query);
+    $stmt->execute();
+    $archivedWiki= $stmt->fetchAll(PDO::FETCH_ASSOC);
+     $archivedWikis=array();
+     
+     foreach($archivedWiki as $wikiwiki){
+        $archivedWikis[]= new wiki ($wikiwiki['wiki_id'],$wikiwiki['wiki_image'],$wikiwiki['wiki_title'],$wikiwiki['wiki_content'],$wikiwiki['wiki_summarize'],$wikiwiki['created_at'],$wikiwiki['category_id'],$wikiwiki['user_id'],$wikiwiki['wiki_statut']);
+     }
+     return $archivedWikis;
+}
+public function selectArchivedWikiss(){
+    $query ="SELECT * FROM wiki WHERE wiki_statut = FALSE  ORDER BY wiki_id DESC LIMIT 4";
     $conn= $this->connect();
     $stmt=$conn->prepare($query);
     $stmt->execute();

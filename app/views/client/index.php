@@ -1,3 +1,7 @@
+<?php
+require_once(__DIR__."/../../controllers/ConWiki.php");
+require_once(__DIR__ . "/../../controllers/ContCategory.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,282 +26,76 @@
         <a href='' class='flex items-center ml-auto lg:hover:text-[#007bff] text-gray-700 block font-bold text-[15px] mr-6 '>sign up</a>
    </div>
   </header>
-
-
-
-  <main class="flex justufy-center flex-col ">
-  <div
-          class="bg-gray-50  mt-2 outline-none border-gray-400 border-solid border-[1px] flex px-4 h-10 w-[50vw] m-auto">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.904 192.904" width="16px" class="fill-gray-400 mr-3">
-            <path
-              d="m190.707 180.101-47.078-47.077c11.702-14.072 18.752-32.142 18.752-51.831C162.381 36.423 125.959 0 81.191 0 36.422 0 0 36.423 0 81.193c0 44.767 36.422 81.187 81.191 81.187 19.688 0 37.759-7.049 51.831-18.751l47.079 47.078a7.474 7.474 0 0 0 5.303 2.197 7.498 7.498 0 0 0 5.303-12.803zM15 81.193C15 44.694 44.693 15 81.191 15c36.497 0 66.189 29.694 66.189 66.193 0 36.496-29.692 66.187-66.189 66.187C44.693 147.38 15 117.689 15 81.193z">
-            </path>
-          </svg>
-          <input type='text' placeholder='Search...' class=" outline-none w-[50vw] bg-gray-50 text-black text-sm" />
+   <main>
+    <section>
+    <div class="bg-gray-800 font-[sans-serif] text-white p-6">
+      <div class="grid md:grid-cols-2 items-center gap-10 max-w-5xl max-md:max-w-md mx-auto">
+        <div class="md:h-[400px]">
+          <img src="https://readymadeui.com/hotel-img.webp" class="w-full h-full object-contain" />
+        </div>
+        <div class="max-md:text-center">
+          <h3 class="md:text-3xl text-2xl md:leading-10">Prompt Delivery and Enjoyable Dining Experience.</h3>
+          <p class="mt-6 text-sm">Laboris qui Lorem ad tempor ut reprehenderit. Nostrud anim nulla officia ea sit deserunt. Eu eu quis anim aute Laboris qui Lorem ad tempor ut reprehenderit.</p>
+          <button type="button" class="px-6 py-2 mt-8 font-semibold rounded text-sm outline-none border-2 border-white">Explore</button>
+        </div>
       </div>
+    </div>
+    </section>
 
-<a href="myWikis.php">mywekkis</a>
-   <section class="grid md:grid-cols-3 grid-cols-1 md:w-[85%] mt-10 m-auto ">
-         
-  <div class="bg-white shadow-[0_2px_18px_-6px_rgba(0,0,0,0.2)] md:w-[25vw] w-full max-w-sm rounded-[3px] font-[sans-serif] overflow-hidden mx-auto mt-4 md:h-[60vh]">
-  <img src="../../../public/images/wikilogo.png" class="w-full h-[45%]" />
-  <div class="px-4 md h-[55%] mt-3">
-    <h3 class="text-l font-semibold ">Heading</h3>
-    <h2 class="text-[10px] text-blue-400">Asmaa barj</h2>
-    <p class="mt-2 text-xs text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor
-      arcu,
-      at fermentum dui. Maecenas Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor arcu,
-      at fermentum dui. Maecenas.
-    </p>
-    <div class="flex justify-between">
-    <button type="button"
-      class="md:px-5 px-6 md:py-1 py-2 md:mt-3 mt-4 rounded-[3px] text-white md:text-xs text-sm tracking-wider font-semibold border-none outline-none bg-black hover:bg-gray-800 active:bg-blue-600">View</button>
-      <div class="flex items-center gap-[5px]">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="10" width="10" fill="gray"
-                                    viewBox="0 0 512 512">
-                                    <path
-                                        d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
-                                </svg>
-                                <p class=" text-gray-600 text-[10px] 	">
-                                    2/2/2023
-                                </p>
-                            </div></div>
+<section class="w-[90%] m-auto mt-20">
+<div class="bg-white font-[sans-serif]">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center">
+          <h2 class="text-3xl font-extrabold text-[#333] inline-block relative after:absolute after:w-4/6 after:h-1 after:left-0 after:right-0 after:-bottom-4 after:mx-auto after:bg-pink-400 after:rounded-full">LATEST BLOGS</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16 max-md:max-w-lg mx-auto">
+        <?php
+          foreach ($resultCate as $CATEGORIE) :
+          ?>
+          <div class="bg-white cursor-pointer rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] relative group">
+            <img src="<?= $CATEGORIE->__get('category_image'); ?>" alt="Blog Post 1" class="w-full h-96 object-cover" />
+            <div class="p-6 absolute bottom-0 left-0 right-0 bg-white opacity-90">
+              <h3 class="text-xl font-bold text-[#333]"><?= $CATEGORIE->__get('category_name'); ?></h3>
+              <div class="h-0 overflow-hidden group-hover:h-16 group-hover:mt-4 transition-all duration-300">
+                <p class="text-gray-600 text-sm"><?= $CATEGORIE->__get('category_desc'); ?></p>
+              </div>
+            </div>
+          </div>
+          <?php
+          endforeach;
+          ?>
+        </div>
+      </div>
     </div>
-</div>
-<div class="bg-white shadow-[0_2px_18px_-6px_rgba(0,0,0,0.2)] md:w-[25vw] w-full max-w-sm rounded-[3px] font-[sans-serif] overflow-hidden mx-auto mt-4 md:h-[60vh]">
-  <img src="../../../public/images/wikilogo.png" class="w-full h-[45%]" />
-  <div class="px-4 md mt-3">
-    <h3 class="text-l font-semibold">Heading</h3>
-    <h2 class="text-[10px] text-blue-400">Asmaa barj</h2>
-    <p class="mt-2 text-xs text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor
-      arcu,
-      at fermentum dui. Maecenas Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor arcu,
-      at fermentum dui. Maecenas.
-    </p>
-    <div class="flex justify-between">
-    <button type="button"
-      class="md:px-5 px-6 md:py-1 py-2 md:mt-3 mt-4 rounded-[3px] text-white md:text-xs text-sm tracking-wider font-semibold border-none outline-none bg-black hover:bg-gray-800 active:bg-blue-600">View</button>
-      <div class="flex items-center gap-[5px]">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="10" width="10" fill="gray"
-                                    viewBox="0 0 512 512">
-                                    <path
-                                        d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
-                                </svg>
-                                <p class=" text-gray-600 text-[10px] 	">
-                                    2/2/2023
-                                </p>
-                            </div></div>
-    </div>
-</div>
-<div class="bg-white shadow-[0_2px_18px_-6px_rgba(0,0,0,0.2)] md:w-[25vw] w-full max-w-sm rounded-[3px] font-[sans-serif] overflow-hidden mx-auto mt-4 md:h-[60vh]">
-  <img src="../../../public/images/wikilogo.png" class="w-full h-[45%]" />
-  <div class="px-4 md mt-3">
-    <h3 class="text-l font-semibold">Heading</h3>
-    <h2 class="text-[10px] text-blue-400">Asmaa barj</h2>
-    <p class="mt-2 text-xs text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor
-      arcu,
-      at fermentum dui. Maecenas Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor arcu,
-      at fermentum dui. Maecenas.
-    </p>
-    <div class="flex justify-between">
-    <button type="button"
-      class="md:px-5 px-6 md:py-1 py-2 md:mt-3 mt-4 rounded-[3px] text-white md:text-xs text-sm tracking-wider font-semibold border-none outline-none bg-black hover:bg-gray-800 active:bg-blue-600">View</button>
-      <div class="flex items-center gap-[5px]">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="10" width="10" fill="gray"
-                                    viewBox="0 0 512 512">
-                                    <path
-                                        d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
-                                </svg>
-                                <p class=" text-gray-600 text-[10px] 	">
-                                    2/2/2023
-                                </p>
-                            </div></div>
-    </div>
-</div>
-<div class="bg-white shadow-[0_2px_18px_-6px_rgba(0,0,0,0.2)] md:w-[25vw] w-full max-w-sm rounded-[3px] font-[sans-serif] overflow-hidden mx-auto mt-4 md:h-[60vh]">
-  <img src="../../../public/images/logowiki.png" class="w-full h-[45%]" />
-  <div class="px-4 md mt-3">
-    <h3 class="text-l font-semibold">Heading</h3>
-    <h2 class="text-[10px] text-blue-400">Asmaa barj</h2>
-    <p class="mt-2 text-xs text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor
-      arcu,
-      at fermentum dui. Maecenas Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor arcu,
-      at fermentum dui. Maecenas.
-    </p>
-    <div class="flex justify-between">
-    <button type="button"
-      class="md:px-5 px-6 md:py-1 py-2 md:mt-3 mt-4 rounded-[3px] text-white md:text-xs text-sm tracking-wider font-semibold border-none outline-none bg-black hover:bg-gray-800 active:bg-blue-600">View</button>
-      <div class="flex items-center gap-[5px]">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="10" width="10" fill="gray"
-                                    viewBox="0 0 512 512">
-                                    <path
-                                        d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
-                                </svg>
-                                <p class=" text-gray-600 text-[10px] 	">
-                                    2/2/2023
-                                </p>
-                            </div></div>
-    </div>
-</div>
-<div class="bg-white shadow-[0_2px_18px_-6px_rgba(0,0,0,0.2)] md:w-[25vw] w-full max-w-sm rounded-[3px] font-[sans-serif] overflow-hidden mx-auto mt-4 md:h-[60vh]">
-  <img src="../../../public/images/wikilogo.png" class="w-full h-[45%]" />
-  <div class="px-4 md mt-3">
-    <h3 class="text-l font-semibold">Heading</h3>
-    <h2 class="text-[10px] text-blue-400">Asmaa barj</h2>
-    <p class="mt-2 text-xs text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor
-      arcu,
-      at fermentum dui. Maecenas Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor arcu,
-      at fermentum dui. Maecenas.
-    </p>
-    <div class="flex justify-between">
-    <button type="button"
-      class="md:px-5 px-6 md:py-1 py-2 md:mt-3 mt-4 rounded-[3px] text-white md:text-xs text-sm tracking-wider font-semibold border-none outline-none bg-black hover:bg-gray-800 active:bg-blue-600">View</button>
-      <div class="flex items-center gap-[5px]">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="10" width="10" fill="gray"
-                                    viewBox="0 0 512 512">
-                                    <path
-                                        d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
-                                </svg>
-                                <p class=" text-gray-600 text-[10px] 	">
-                                    2/2/2023
-                                </p>
-                            </div></div>
-    </div>
-
-</div>
-<div class="bg-white shadow-[0_2px_18px_-6px_rgba(0,0,0,0.2)] md:w-[25vw] w-full max-w-sm rounded-[3px] font-[sans-serif] overflow-hidden mx-auto mt-4 md:h-[60vh]">
-  <img src="../../../public/images/wikilogo.png" class="w-full h-[45%]" />
-  <div class="px-4 md mt-3">
-    <h3 class="text-l font-semibold">Heading</h3>
-    <h2 class="text-[10px] text-blue-400">Asmaa barj</h2>
-    <p class="mt-2 text-xs text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor
-      arcu,
-      at fermentum dui. Maecenas Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor arcu,
-      at fermentum dui. Maecenas.
-    </p>
-    <div class="flex justify-between">
-    <button type="button"
-      class="md:px-5 px-6 md:py-1 py-2 md:mt-3 mt-4 rounded-[3px] text-white md:text-xs text-sm tracking-wider font-semibold border-none outline-none bg-black hover:bg-gray-800 active:bg-blue-600">View</button>
-      <div class="flex items-center gap-[5px]">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="10" width="10" fill="gray"
-                                    viewBox="0 0 512 512">
-                                    <path
-                                        d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
-                                </svg>
-                                <p class=" text-gray-600 text-[10px] 	">
-                                    2/2/2023
-                                </p>
-                            </div></div>
-    </div>
-
-</div>
-<div class="bg-white shadow-[0_2px_18px_-6px_rgba(0,0,0,0.2)] md:w-[25vw] w-full max-w-sm rounded-[3px] font-[sans-serif] overflow-hidden mx-auto mt-4 md:h-[60vh]">
-  <img src="../../../public/images/wikilogo.png" class="w-full h-[45%]" />
-  <div class="px-4 md mt-3">
-    <h3 class="text-l font-semibold">Heading</h3>
-    <h2 class="text-[10px] text-blue-400">Asmaa barj</h2>
-    <p class="mt-2 text-xs text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor
-      arcu,
-      at fermentum dui. Maecenas Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor arcu,
-      at fermentum dui. Maecenas.
-    </p>
-    <div class="flex justify-between">
-    <button type="button"
-      class="md:px-5 px-6 md:py-1 py-2 md:mt-3 mt-4 rounded-[3px] text-white md:text-xs text-sm tracking-wider font-semibold border-none outline-none bg-black hover:bg-gray-800 active:bg-blue-600">View</button>
-      <div class="flex items-center gap-[5px]">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="10" width="10" fill="gray"
-                                    viewBox="0 0 512 512">
-                                    <path
-                                        d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
-                                </svg>
-                                <p class=" text-gray-600 text-[10px] 	">
-                                    2/2/2023
-                                </p>
-                            </div></div>
-    </div>
-</div>
-<div class="bg-white shadow-[0_2px_18px_-6px_rgba(0,0,0,0.2)] md:w-[25vw] w-full max-w-sm rounded-[3px] font-[sans-serif] overflow-hidden mx-auto mt-4 md:h-[60vh]">
-  <img src="../../../public/images/wikilogo.png" class="w-full h-[45%]" />
-  <div class="px-4 md mt-3">
-    <h3 class="text-l font-semibold">Heading</h3>
-    <h2 class="text-[10px] text-blue-400">Asmaa barj</h2>
-    <p class="mt-2 text-xs text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor
-      arcu,
-      at fermentum dui. Maecenas Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor arcu,
-      at fermentum dui. Maecenas.
-    </p>
-    <div class="flex justify-between">
-    <button type="button"
-      class="md:px-5 px-6 md:py-1 py-2 md:mt-3 mt-4 rounded-[3px] text-white md:text-xs text-sm tracking-wider font-semibold border-none outline-none bg-black hover:bg-gray-800 active:bg-blue-600">View</button>
-      <div class="flex items-center gap-[5px]">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="10" width="10" fill="gray"
-                                    viewBox="0 0 512 512">
-                                    <path
-                                        d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
-                                </svg>
-                                <p class=" text-gray-600 text-[10px] 	">
-                                    2/2/2023
-                                </p>
-                            </div></div>
-    </div>
-</div>
-<div class="bg-white shadow-[0_2px_18px_-6px_rgba(0,0,0,0.2)] md:w-[25vw] w-full max-w-sm rounded-[3px] font-[sans-serif] overflow-hidden mx-auto mt-4 md:h-[60vh]">
-  <img src="../../../public/images/wikilogo.png" class="w-full h-[45%]" />
-  <div class="px-4 md mt-3">
-    <h3 class="text-l font-semibold">Heading</h3>
-    <h2 class="text-[10px] text-blue-400">Asmaa barj</h2>
-    <p class="mt-2 text-xs text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor
-      arcu,
-      at fermentum dui. Maecenas Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor auctor arcu,
-      at fermentum dui. Maecenas.
-    </p>
-    <div class="flex justify-between">
-    <button type="button"
-      class="md:px-5 px-6 md:py-1 py-2 md:mt-3 mt-4 rounded-[3px] text-white md:text-xs text-sm tracking-wider font-semibold border-none outline-none bg-black hover:bg-gray-800 active:bg-blue-600">View</button>
-      <div class="flex items-center gap-[5px]">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="10" width="10" fill="gray"
-                                    viewBox="0 0 512 512">
-                                    <path
-                                        d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
-                                </svg>
-                                <p class=" text-gray-600 text-[10px] 	">
-                                    2/2/2023
-                                </p>
-                            </div></div>
-    </div>
-</div>
 </section>
-<ul class="flex space-x-3 justify-center mt-8">
-  <li class="flex items-center justify-center shrink-0 cursor-pointer bg-gray-300 w-9 h-8 rounded">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-3 fill-gray-500" viewBox="0 0 55.753 55.753">
-      <path
-        d="M12.745 23.915c.283-.282.59-.52.913-.727L35.266 1.581a5.4 5.4 0 0 1 7.637 7.638L24.294 27.828l18.705 18.706a5.4 5.4 0 0 1-7.636 7.637L13.658 32.464a5.367 5.367 0 0 1-.913-.727 5.367 5.367 0 0 1-1.572-3.911 5.369 5.369 0 0 1 1.572-3.911z"
-        data-original="#000000" />
-    </svg>
-  </li>
-  <li class="flex items-center justify-center shrink-0 cursor-pointer text-sm font-bold text-[#333] w-9 h-8 rounded">
-    1
-  </li>
-  <li
-    class="flex items-center justify-center shrink-0 cursor-pointer text-sm font-bold bg-[#007bff] text-white w-9 h-8 rounded">
-    2
-  </li>
-  <li class="flex items-center justify-center shrink-0 cursor-pointer text-sm font-bold text-[#333] w-9 h-8 rounded">
-    3
-  </li>
-  <li class="flex items-center justify-center shrink-0 cursor-pointer text-sm font-bold text-[#333] w-9 h-8 rounded">
-    4
-  </li>
-  <li class="flex items-center justify-center shrink-0 cursor-pointer bg-gray-300 w-9 h-8 rounded">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-3 fill-gray-500 rotate-180" viewBox="0 0 55.753 55.753">
-      <path
-        d="M12.745 23.915c.283-.282.59-.52.913-.727L35.266 1.581a5.4 5.4 0 0 1 7.637 7.638L24.294 27.828l18.705 18.706a5.4 5.4 0 0 1-7.636 7.637L13.658 32.464a5.367 5.367 0 0 1-.913-.727 5.367 5.367 0 0 1-1.572-3.911 5.369 5.369 0 0 1 1.572-3.911z"
-        data-original="#000000" />
-    </svg>
-  </li>
-</ul>
+<section class="mt-24">
+<div class="bg-white font-[sans-serif] p-4">
+      <div class="max-w-6xl max-md:max-w-lg mx-auto">
+        <div>
+          <h2 class="text-3xl font-extrabold text-[#333] inline-block">LATEST BLOGS</h2>
+        </div>
+        <div class="grid grid-cols-1  gap-8 mt-10">
+        <?php
+          foreach ($archivee as $archive) :
+          ?>
+          <div class="flex max-lg:flex-col bg-white cursor-pointer rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] hover:scale-105 transition-all duration-300">
+            <img src="<?= $archive->__get('wiki_image'); ?>" alt="Blog Post 1" class="lg:w-2/5 min-h-[250px] h-full object-cover" />
+            <div class="p-6 lg:w-3/5">
+              <h3 class="text-xl font-bold text-[#333]"><?= $archive->__get('wiki_title'); ?></h3>
+              <span class="text-sm block text-gray-400 mt-2"><?= $archive->__get('created_at'); ?></span>
+              <p class="text-sm mt-4"><?= $archive->__get('wiki_summarize'); ?></p>
+              <a href="javascript:void(0);" class="mt-4 inline-block text-blue-600 text-sm hover:underline">Read More</a>
+            </div>
+          </div>
+          <?php
+          endforeach;
+          ?>
+        </div>
+      </div>
+    </div>
+</section>
 
-  </main>
+   </main>
   <footer class="bg-gray-900 font-[sans-serif] mt-10">
       <div class="px-10 md:px-16 py-12 grid sm:grid-cols-2 xl:grid-cols-4 gap-8">
         <div>

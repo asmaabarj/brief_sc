@@ -23,7 +23,19 @@ class categoryService{
     }
 
     public function selectCat(){
-        $query ="SELECT * FROM category";
+        $query ="SELECT * FROM category ORDER BY category_id DESC";
+        $conn= $this->connect();
+        $stmt=$conn->prepare($query);
+        $stmt->execute();
+        $result= $stmt->fetchAll(PDO::FETCH_ASSOC);
+         $categories=array();
+         foreach($result as $CATEGORIE){
+            $categories[]= new Category ($CATEGORIE['category_id'],$CATEGORIE['category_name'],$CATEGORIE['category_desc'],$CATEGORIE['category_image']);
+         }
+         return $categories;
+    }
+    public function selectCate(){
+        $query ="SELECT * FROM category ORDER BY category_id DESC LIMIT 3";
         $conn= $this->connect();
         $stmt=$conn->prepare($query);
         $stmt->execute();

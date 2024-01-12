@@ -85,6 +85,8 @@ if(isset($_POST["edit"])){
 
 $archiver=$WikisService->selectArchivedWikis();
 $disarchiver=$WikisService->selectDisarchivedWikis();
+$archivee=$WikisService->selectArchivedWikiss();
+
 
 
 if (isset($_POST['archive'])) {
