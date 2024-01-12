@@ -156,6 +156,18 @@ public function selectDisarchivedWikis(){
      }
      return $disarchivedWikis;
 }
+
+
+public function CountWikis()
+    {
+
+        $conn = $this->connect();
+        $query = 'SELECT COUNT(wiki_id) as Wikis FROM wiki';
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetchColumn();
+        return $result;
+    }
 }
 
     

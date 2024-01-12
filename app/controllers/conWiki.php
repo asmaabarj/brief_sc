@@ -90,6 +90,6 @@ if (isset($_POST['unarchive'])) {
     header('Location: ../views/admin/manageWikies.php');
 }
 
-
+$CountWikis=$WikisService->CountWikis();
 
 ?>

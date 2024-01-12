@@ -71,5 +71,16 @@ return $emails;
          }
          return $userss;
     }
+
+    public function CountAuthors(){
+
+        $conn = $this->connect();
+        $query = "SELECT count(user_id) as authors FROM users WHERE user_role = 'author'";
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+       $CountAuthors = $stmt->fetchColumn();
+    
+       return $CountAuthors;
+    }
     
 }

@@ -75,6 +75,17 @@ public function deleteCat($id){
     $stmt->execute();
 }
     
+public function CountCatgoris(){
+
+    $conn = $this->connect();
+    $query = "SELECT count(category_id) as categories FROM category ";
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+   $CountCatgoris = $stmt->fetchColumn();
+
+   return $CountCatgoris;
+}
+
 } 
 
 
