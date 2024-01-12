@@ -63,3 +63,5 @@ if (isset($_POST['login'])) {
    
 }
 $Authors=$Userservice->selectAuthor();
+$CountAuthors=$Userservice->CountAuthors();
+

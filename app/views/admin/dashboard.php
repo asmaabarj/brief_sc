@@ -2,6 +2,7 @@
 require_once(__DIR__."/../../controllers/conUser.php");
 require_once(__DIR__."/../../controllers/contCategory.php");
 require_once(__DIR__."/../../controllers/conWiki.php");
+require_once(__DIR__."/../../controllers/conTag.php");
 
 
 if(isset($_SESSION['user'])){
@@ -94,7 +95,7 @@ else{
                 <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
                     <div class="flex justify-between ">
                         <div>
-                            <div class="text-2xl font-semibold mb-1">10</div>
+                            <div class="text-2xl font-semibold mb-1"><?=$CountAuthors?></div>
                             <div class="text-sm font-medium text-gray-400">Authors</div>
                         </div>
                         
@@ -104,7 +105,7 @@ else{
                 <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
                     <div class="flex justify-between mb-6">
                         <div>
-                            <div class="text-2xl font-semibold mb-1">10</div>
+                            <div class="text-2xl font-semibold mb-1"><?=$CountCategories?></div>
                             <div class="text-sm font-medium text-gray-400">Categories</div>
                         </div>
                         
@@ -124,7 +125,7 @@ else{
                 <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
                     <div class="flex justify-between ">
                         <div>
-                            <div class="text-2xl font-semibold mb-1">10</div>
+                            <div class="text-2xl font-semibold mb-1"><?=$CountTags?></div>
                             <div class="text-sm font-medium text-gray-400">Tags</div>
                         </div>
                         

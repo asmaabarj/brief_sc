@@ -46,7 +46,7 @@ if(isset($_POST["edit"])){
 
 
 
-
+$CountTags=$tagService->CountTags();
 
 
 ?>

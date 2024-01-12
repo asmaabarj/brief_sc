@@ -52,6 +52,7 @@ if(isset($_POST["edit"])){
     unset($_SESSION['idcat']);
     header('Location: ../views/admin/manageCategory.php');
 }
+$CountCategories=$categoryService->CountCatgories();
 
 
     ?>
